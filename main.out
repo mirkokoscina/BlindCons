@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Background}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Okamoto et al. Signature}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Practical Byzantine Fault Tolerance \(PBFT\) Consensus Protocol}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{PBFT general description.}{subsection.2.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{PBFT consensus in private blockchain implementations}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Privacy Preserving PBFT for Permissioned Ledgers}{}% 7
+\BOOKMARK [1][-]{section.4}{Protocol Properties}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Consistency}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Liveness}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Blindness}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Non-forgeability}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 13
+\BOOKMARK [1][-]{section*.4}{References}{}% 14
