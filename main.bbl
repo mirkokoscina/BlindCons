@@ -29,13 +29,6 @@ David Chaum, Amos Fiat, and Moni Naor.
 \newblock In {\em Conference on the Theory and Application of Cryptography},
   pages 319--327. Springer, 1988.
 
-\bibitem{10.1007/3-540-48071-4_7}
-David Chaum and Torben~Pryds Pedersen.
-\newblock Wallet databases with observers.
-\newblock In Ernest~F. Brickell, editor, {\em Advances in Cryptology ---
-  CRYPTO' 92}, pages 89--105, Berlin, Heidelberg, 1993. Springer Berlin
-  Heidelberg.
-
 \bibitem{Chaum:1981:UEM:358549.358563}
 David~L. Chaum.
 \newblock Untraceable electronic mail, return addresses, and digital

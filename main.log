@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  23 DEC 2018 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  27 DEC 2018 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1135,17 +1135,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 338--340
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
- []
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 370--371
-[]\T1/ptm/b/n/10 3\T1/ptm/m/n/10 ) \T1/ptm/b/it/10 Trans-ac-tion En-dorse-ment:
- \T1/ptm/m/n/10 The en-dorser peer ($\OML/cmm/m/it/10 ep[]$\T1/ptm/m/n/10 )
  []
 
 
@@ -1158,11 +1149,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 380--381
 
  []
 
-[4]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-Underfull \hbox (badness 8056) in paragraph at lines 428--429
+ [4]
+[5]
+Underfull \hbox (badness 8056) in paragraph at lines 427--428
 \T1/ptm/m/n/10 to-col. Let $\OML/cmm/m/it/10 BlindSign\OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 M; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^L; ^^[; ^^M\OT1/cmr/m/n/10 )\OM
 L/cmm/m/it/10 ; y\OT1/cmr/m/n/10 )$ \T1/ptm/m/n/10 and \T1/ptm/m/it/10 Ver-i-fy
@@ -1170,55 +1162,55 @@ L/cmm/m/it/10 ; y\OT1/cmr/m/n/10 )$ \T1/ptm/m/n/10 and \T1/ptm/m/it/10 Ver-i-fy
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 433.
+put line 432.
 
-Underfull \hbox (badness 2229) in paragraph at lines 444--445
+Underfull \hbox (badness 7907) in paragraph at lines 443--444
 \T1/ptm/b/n/10 posal \T1/ptm/m/n/10 (see Al-go-rithm []2[]). In this pro-cess w
-e start by
+e start
  []
 
 
-Underfull \hbox (badness 5985) in paragraph at lines 444--445
-\T1/ptm/m/n/10 val-i-dat-ing the blind sig-na-ture by us-ing the func-tion
+Underfull \hbox (badness 2735) in paragraph at lines 443--444
+\T1/ptm/m/n/10 by val-i-dat-ing the blinded sig-na-ture us-ing the func-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 [] []$\OML/cmm/m/it/10 trans[] \OMS/cmsy/m/n/10   \OT1/cmr/m/n/10 (\OML/cmm/m/i
 t/10 sp[]; o[]; Payload; stateUpdate;$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 468--468
 [] []\T1/ptm/m/n/10 ($\OML/cmm/m/it/10 verDep[]$\T1/ptm/m/n/10 ,$\OML/cmm/m/it/
 10 stateUpdate[]$\T1/ptm/m/n/10 ) $\OMS/cmsy/m/n/10  $
  []
 
 
-Underfull \hbox (badness 5847) in paragraph at lines 482--484
+Underfull \hbox (badness 5847) in paragraph at lines 481--483
 [] []\T1/ptm/b/n/10 return  \T1/ptm/m/it/10 <TRANSACTION-INVALID,tid,REJECTED,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--494
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
 []\T1/ptm/b/n/10 Algorithm 4 \T1/ptm/m/n/10 TxBrodCons($\OML/cmm/m/it/10 trans[
 ]$\T1/ptm/m/n/10 , $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Z; ^^[; ^^O[]\OT1/cmr/m
 /n/10 )$\T1/ptm/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--498
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
 [] []$\OML/cmm/m/it/10 endorsment[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 endorsemen
 t[]:length \OT1/cmr/m/n/10 + 1]$ $\OMS/cmsy/m/n/10  $
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 511--511
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
 [] []\T1/ptm/b/n/10 if $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 blob:endorsment[] [] 
 securityPolicies\OT1/cmr/m/n/10 )$ \T1/ptm/m/n/10 ||
  []
 
-[6] [7] (./main.bbl [8])
+[7] (./main.bbl [8])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1230,26 +1222,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 602.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 601.
 [9
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 602.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 601.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 602.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 602.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 601.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 601.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2C0D1A68827C385059D2233882234312;925.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 602.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 601.
  ) 
 Here is how much of TeX's memory you used:
- 23958 strings out of 492649
- 470120 string characters out of 6129622
- 592491 words of memory out of 5000000
- 27281 multiletter control sequences out of 15000+600000
+ 23956 strings out of 492649
+ 470067 string characters out of 6129622
+ 592549 words of memory out of 5000000
+ 27280 multiletter control sequences out of 15000+600000
  118570 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,82p,1259b,763s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,18n,82p,1269b,763s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1267,10 +1259,10 @@ f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fon
 ts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
 urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on main.pdf (9 pages, 230830 bytes).
+Output written on main.pdf (9 pages, 231072 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 348 compressed objects within 4 object streams
- 142 named destinations out of 1000 (max. 500000)
+ 377 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 141 named destinations out of 1000 (max. 500000)
  125 words of extra memory for PDF output out of 10000 (max. 10000000)
 
