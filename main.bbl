@@ -138,6 +138,12 @@ Claus~Peter Schnorr.
 \newblock In {\em International Conference on Information and Communications
   Security}, pages 1--12. Springer, 2001.
 
+\bibitem{BlockchainGDPR}
+Ken~Timsit Tom~Lyons, Ludovic~Courcelas.
+\newblock Blockchain and gdpr.
+\newblock Technical report, The european union blockchain observatory and
+  forum, oct 2018.
+
 \bibitem{van2013cryptonote}
 Nicolas Van~Saberhagen.
 \newblock Cryptonote v 2.0, 2013.
