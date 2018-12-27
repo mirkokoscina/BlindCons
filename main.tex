@@ -208,9 +208,9 @@ In permissioned blockchain architectures, every user must be enrolled into the s
 
 Our consensus algorithm is based on PBFT and the \textit{execute-order-validate} process used in Hyperledger Fabric~\cite{androulaki2018hyperledger} since version 1.0. In this protocol, each transaction passes through these three stages. The \textit{execution} phase triggers the transaction and then validates by endorsing it. In the \textit{order} phase, the transactions are ordered according to the consensus protocol. Finally, the \textbf{validation} phase checks the security policies per operation and application types.
 
-In the case of our blockchain PBFT-based consensus algorithms, we start with a client $c_{bc}$ that has the same role than a client in the PBFT procotol. Then we have submitting peers $sp_{i_{bc}}$ that send the transaction proposal with the instructions indicated by the client to the endorsing peers in order to validate the transaction. This process is analogous than the executed by the primary in the PBFT algorithm, that sends the message with the instructions to the backups to validate it. Then, for the transaction endorsement, the endorsing peers send their responses to the submitting peer, which is responsible to collect the responses after the validation process is done. Finally, the submitting peer sends the transaction to the orderers to propose a new block and then to be committed by the nodes members to the network. This process differs from the PBFT, where the backups respond to the other backups, all of them waits to have enough \textbf{prepare} and \textbf{commit} messages to then reply directly to the client, without pass through the primary. 
+In the case of our blockchain PBFT-based consensus algorithms, we start with a client $c_{bc}$ that has the same role than a client in the PBFT procotol. Then we have submitting peers $sp_{i_{bc}}$ that send the transaction proposal with the instructions indicated by the client to the endorsing peers in order to validate the transaction. This process is analogous than the executed by the primary in the PBFT algorithm, that sends the message with the instructions to the backups to validate it. Then, for the transaction endorsement, the endorsing peers send their responses to the submitting peer, which is responsible to collect the responses after the validation process is done. Finally, the submitting peer sends the transaction to the orderers to generate the new block to be committed by the nodes members to the network. This process differs from the PBFT, where the backups respond to the other backups, and all of them waits to have enough \textbf{prepare} and \textbf{commit} messages to then reply directly to the client, without pass through the primary. 
 
-To exemplify this process, consider that we have a client $c_{bc}$ that needs to execute an operation $o_{bc}$ on a PBFT-based network. To process this request, we need to execute the following five steps: Initiating Transactions, Transaction Proposal, Transaction Endorsement, Broadcasting to Consensus and Commitment (see Figure~\ref{dia:pbft_BC}).
+To exemplify this process, consider that we have a client $c_{bc}$ that needs to execute an operation $o_{bc}$ on our PBFT-based blockchain protocol. To process this request, we need to execute the following five steps: Initiating Transactions, Transaction Proposal, Transaction Endorsement, Broadcasting to Consensus and Commitment (see Figure~\ref{dia:pbft_BC}).
 
 \begin{figure*}[tb]
 \centering
@@ -336,28 +336,28 @@ To exemplify this process, consider that we have a client $c_{bc}$ that needs to
 
 
 \Par{\textit{\textbf{Initiating Transactions:}}}
-In the initiating transactions, the client $c_{bc}$ generates a message to invoke specific operation $o_{bc}$ to be solved by the network. The message is sent to a submitting peer, then we continue with the process. In the case that the submitting peer is offline or misbehaving, the client sends the transaction to the next submitting peer. The structure of the message is presented below:~\\
+In the initiating transactions, the client $c_{bc}$ generates a message to invoke specific operations $o_{bc}$ to be resolved by the network. The message is sent to a submitting peer, which is the responsible to continue with the next step called \textit{Transaction Proposal}. In the case that the submitting peer is offline or misbehaving, the client sends the transaction to the next submitting peer. The structure of the message is presented below:~\\
 
 \noindent\fbox{\begin{minipage}[c]{0.475\textwidth}
 $<\textit{SUBMIT},c_{bc},o_{bc},txPayload,\sigma_c,retryFlag>$, where:
 \begin{itemize}
 \item $c_{bc}$: is the client ID,
-\item $o_{bc}$: refers to the operation inside the distributed system,
+\item $o_{bc}$: refers to the operations implemented in the distributed system,
 \item $txPayload$: is the payload of the submitted transaction,
-\item $\sigma_c$: is signature of a client,
-\item $retryFlag$: boolean variable to identify whether to retry the submission of the transaction in case of the transaction fails. 
+\item $\sigma_c$: is the client signature,
+\item $retryFlag$: boolean variable to identify whether to retry the transaction submission in case of the transaction fails. 
 \end{itemize}
 \end{minipage}}
 
 \Par{\textit{\textbf{Transaction Proposal:}}}
-The submitter peer ($sp_{bc}$) receives the transaction and verifies the client signature $\sigma_{c}$. Then prepares a transaction proposal to be sent to the endorsing peer. The transaction proposal consists of invoking the operations $o_{bc}$ and compute the state update (\textit{stateUpdate}) and version dependency ($\textit{verDep}$). The version dependencies relates the variables involve in the transaction with his version in the state and their respective operation. For example: if a client wants to read and write in the blockchain, the version dependency is a tuple $\left(readset,writeset\right)$ where:
+The submitting peer ($sp_{bc}$) receives the transaction and verifies the client signature $\sigma_{c}$. Then prepares the transaction proposal message to be sent to the endorsing peer. The transaction proposal consists of invoking the operations $o_{bc}$ and computing the state update (\textit{stateUpdate}) and version dependency ($\textit{verDep}$). The version dependencies relates the variables involve in the transaction with node local version of the variable and their respective operations. For example: if a client wants to read and write in the blockchain, the version dependency is a tuple $\left(readset,writeset\right)$ where:
 
 \begin{itemize}
 \item for every variable $k$ read by the transaction, the pair $(k,s(k).version)$ is added to readset,
 \item for every variable $k$ modified by the transaction, the pair $(k,s(k).version)$ is added to $writeset$.
 \end{itemize}
 
-Once the execution of the proposal is done, the submitter peer generates the \textit{transaction proposal} message, defined as: ~\\
+Once the execution of the operations $o_{bc}$ triggered by the client $c_{bc}$ is done, the submitting peer generates the \textit{transaction proposal} message and then submit it to the endorsing peer. The transaction proposal message is defined as: ~\\
 
 \noindent\fbox{\begin{minipage}[c]{0.475\textwidth}
 $<\textit{PROPOSAL},m_c,trans_{prop}>$, where:
@@ -367,17 +367,17 @@ $<\textit{PROPOSAL},m_c,trans_{prop}>$, where:
 \end{itemize}
 \end{minipage}}
 
-\Par{\textit{\textbf{Transaction Endorsement:}}} The endorser peer ($ep_{bc}$) verifies the client signature $\sigma_c$ coming in $m_c$ and checks that the operation $o_{bn}$ in $m_c$ and $trans_{prop}$ is the same. Then, the endorser simulates the transaction proposal and validates that the $stateUpdate$ and $verDep$ are correct. If the validation process is successful, the endorser peer generates a \textit{transaction valid} message to be sent to the submitter peer. The message has the following structure: ~\\
+\Par{\textit{\textbf{Transaction Endorsement:}}} The endorsing peer ($ep_{bc}$) verifies the client signature $\sigma_c$ coming in $m_c$ and checks that the operations $o_{bn}$ in $m_c$ and $trans_{prop}$ are the same. Then, the endorser simulates the transaction proposal and validates that the $stateUpdate$ and $verDep$ are correct. If the validation process is successful, the endorsing peer generates a \textit{transaction valid} message to be sent to the submitting peer. The message has the following structure: ~\\
 
 \noindent\fbox{\begin{minipage}[c]{0.475\textwidth}
 $<\textit{TRANSACTION-VALID},tx_{id},\sigma_{ep}>$, where:
 \begin{itemize}
 \item $tx_{id}$: is the transaction identifier generated with the client ID and a nonce,
-\item $\sigma_ep$:= is signature of the message signed by the submitter peer $sp_{BC}$.
+\item $\sigma_ep$: is the signature of the message signed by the submitting peer $sp_{BC}$.
 \end{itemize}
 \end{minipage}}
 
-In the case of the simulation process ends unsuccessfully, the endorser peer generates a \textit{transaction invalid} message: ~\\
+In the case of the simulation process ends unsuccessfully, the endorsing peer generates a \textit{transaction invalid} message: ~\\
 
 \noindent\fbox{\begin{minipage}[c]{0.475\textwidth}
 $<\textit{TRANSACTION-INVALID},tx_{id},Error,\sigma_{ep}>$, where \textit{Error} can be:
@@ -388,15 +388,15 @@ $<\textit{TRANSACTION-INVALID},tx_{id},Error,\sigma_{ep}>$, where \textit{Error}
 \end{itemize}
 \end{minipage}}
 
-\Par{\textit{\textbf{Broadcasting to Consensus:}}} The submitter peer waits for the response from the endorsing peers. When it receives enough \textit{Transaction Valid} messages adequately signed, the peer stores the endorsing signatures into packaged called \textit{endorsement}. Once the transaction is considered endorsed, the peer invokes the consensus services by using \textit{broadcast(blob)}, where \textit{blob:=(trans\textsubscript{prop}}, \textit{endorsement)}.
+\Par{\textit{\textbf{Broadcasting to Consensus:}}} The submitting peer waits for the response from the endorsing peers. When it receives enough \textit{Transaction Valid} messages adequately signed, the peer stores the endorsing signatures into packaged called \textit{endorsement}. Once the transaction is considered endorsed, the peer invokes the consensus services by using \textit{broadcast(blob)}, where \textit{blob:=(trans\textsubscript{prop}}, \textit{endorsement)}.
 
-The number of responses and endorsing to consider the \textit{transaction proposal} as endorsed depends on the configuration of the permissioned blockchain. If the transaction has failed to collect the enough endorsements, it abandons this transaction and notifies to the submitter.
+The number of valid responses needed to consider that the \textit{transaction proposal} is endorsed depends on the configuration of the permissioned blockchain. If the transaction has failed to collect the enough endorsements, the peer abandons this transaction and notifies to the client.
 
-\Par{\textit{\textbf{Commitment:}}} Once a submitter peer broadcast transactions properly endorsed to consensus, an ordering services collects these transactions into blocks. From the ordering service, we get a hash-chained sequence of blocks with the transactions endorsed. The block prepared by the ordering service has the form $B=\left(\left[tx_1,tx_2,...,tx_k\right],h\right)$, where $h$ corresponds to hash value of the previous block.
+\Par{\textit{\textbf{Commitment:}}} Once a submitting peer broadcast transactions properly endorsed to consensus, the ordering services collect these transactions and organize them into a block. From the ordering services, we get a hash-chained sequence of blocks with the transactions endorsed. The block prepared by the ordering services has the form $B=\left(\left[tx_1,tx_2,...,tx_k\right],h\right)$, where $h$ corresponds to hash value of the previous block.
 
-The peers receive the blocks from the ordering service through a direct connection or by using a gossip protocol. Once the peers have the new block, they  check if the endorsement of each transaction is valid according to the policy configured in the network. Then, it verifies the \textit{verDep} in order to ensure there are no conflicts between the operation $o_{bc}$; the variables involved in the transaction and the current \textit{state}. If this process finishes successfully, the transactions are committed. In the case that one of the validation fails, the peer considers the transaction as invalid and drops it. Finally, the invalid transactions are informed to the client $c_{bc}$ by the submitter peer $sp_{bc}$, and according to the \textit{retryFlag}, the $sp_{bc}$ may retry the transaction.
+The peers receive the blocks from the ordering services through a direct connection or by using a gossip protocol. Once the peers have the new block, they check if the endorsement of each transaction is valid according to the policy configured in the network. Then, the peers verify the \textit{verDep} in order to ensure there are no conflicts between the operation $o_{bc}$; the variables involved in the transaction and the current blockchain \textit{state}. If this process finishes successfully, the transactions are committed. In the case that one of the validation fails, the peers consider the transaction as invalid and drops it. Finally, the invalid transactions are informed to the client $c_{bc}$ by the submitting peer $sp_{bc}$, and according to the \textit{retryFlag}, the $sp_{bc}$ may retry the transaction.
 
-The peers can change the local state just once the transactions are committed. Hence, the peer into the network will update their local version of the ledger once all the transactions in the block are committed. Finally, the state update is done by appending the new block to their local version of the blockchain.
+The peers can change the local state just once the transactions are committed. Hence, each peer connected to the network will update their local version of the ledger once all the transactions in the block are committed. Finally, the state update is done by appending the new block to their local version of the blockchain.
 
 \section{Privacy Preserving PBFT for Permissioned Ledgers}\label{PPPBFT}
 
@@ -406,7 +406,6 @@ Considering a permissioned PBFT based consensus protocol like the one introduced
     \item Alice sends a newly signed transaction to the CA,
     \item Alice’ signature is validated only by the CA,
     \item The CA signs the transaction proposed by Alice and anonymizes Alice’s identity,
-    \item The CA signs the transaction sent by Alice to the network,
     \item all the nodes members of the transactions validation process can validate the CA's signature,
     \item the CA signature cannot be duplicated.
 \end{itemize}
@@ -418,16 +417,16 @@ To address the issue related to the digital signature, we will replace the signi
 \begin{enumerate}
     \item \textbf{Initiating Transactions:} The client $c_{bc}$ generates a signed message to execute an operation $o_{bc}$ in the network.
     \item \textbf{Transaction Proposal:} The submitting peer $sp_{bc}$ receives the message coming from the client $c_{bc}$, validates the client signature and propose a blockchain transaction with the client instruction $o_{bc}$.
-    \item \textbf{Transaction Endorsement:} The endorser peer $ep_{bc}$ validates the client $c_{bc}$ signatures and verifies that the transaction is correctly simulating the operation $o_{bc}$ using his local version of the blockchain. Then, he generates the signed transactions with the result of the validation process and sends it to the submitting peer $sp_{bc}$.
-    \item \textbf{Broadcasting to Consensus:} The submitting peer $sp_{bc}$ collects the endorse coming from the endorser peers connected to the network. Once $sp_{bc}$ collects enough valid answers from the endorsers, he broadcasts the transaction proposal with the endorsement to the ordering service.
+    \item \textbf{Transaction Endorsement:} The endorsing peers $ep_{bc}$ validate the client $c_{bc}$ signature and verify that the transaction is correctly simulating the operation $o_{bc}$ using his local version of the blockchain. Then, each endorsing peer generates a signed transactions with the result of the validation process and sends it to the submitting peer $sp_{bc}$.
+    \item \textbf{Broadcasting to Consensus:} The submitting peer $sp_{bc}$ collects the endorsements coming from the endorsing peers connected to the network. Once $sp_{bc}$ collects enough valid answers from the endorsers, he broadcasts the transaction proposal with the endorsement to the ordering service.
     \item \textbf{Commitment:} All the transactions are ordered within a block, and are validated with their respective endorsement. Then, the new block is spread through the network to be committed by the peers.
 \end{enumerate}
 
-In order to maintain the consistency and liveness that the protocol has, we keep the transactional flow. However, the steps are modified in order to accept the new blind signature scheme to authenticate the clients and peers.
+In order to maintain the consistency and liveness that the protocol has, we keep the transactional flow. However, the steps are modified in order to accept the new blind signature scheme to authenticate the clients and the peers.
 
-We define three new functions to represent the signing process and the operation execution inside the protocol. Let $BlindSign(M,(\beta,\sigma,\gamma),y)$ and \textit{VerifyBlindSign(M,}$(\rho,\delta,\epsilon),y)$ be the functions to sign blind and to verify the blind signature, respectively. Where $M$ corresponds to the message to be signed, $(\beta,\sigma,\gamma)$ to the secret values randomly chosen $(\xleftarrow[]{r}\mathbb{Z}_q)$ by the client or peer, $(\rho,\delta,\epsilon)$ to the blind signature; and $y$ to the CA public key. The result obtained from the function \textit{BlindSign} corresponds to the blind signature $(\rho,\sigma,\epsilon)$. On the other hand, the function \textit{VerifyBlindSign} returns a response \textit{valid} or \textit{invalid}. The third function corresponds to \textit{EXEC(o,Payload)}, and represents the execution process of the operation $o$ on \textit{Payload} performed by the peer. Additionally, we use the variables \textit{tid} as the transaction ID, \textit{SecurityPolicies} to define the set of security parameters configured in the node for the operation $o_{bc}$ (i.e., read and write rights), and \textit{TotEndorPeers} for the total number of endorsing peers in the network.
+We define three new functions to represent the signing process and the operation execution inside the protocol. Let $BlindSign(M,(\beta,\sigma,\gamma),y)$ and \textit{VerifyBlindSign(M,}$(\rho,\delta,\epsilon),y)$ be the functions to sign blind and to verify the blinded signature, respectively. Where $M$ corresponds to the message to be signed, $(\beta,\sigma,\gamma)$ to the secret values randomly chosen $(\xleftarrow[]{r}\mathbb{Z}_q)$ by the client or peer, $(\rho,\delta,\epsilon)$ to the blinded signature; and $y$ to the CA public key. The result obtained from the function \textit{BlindSign} corresponds to the blinded signature $(\rho,\sigma,\epsilon)$. On the other hand, the function \textit{VerifyBlindSign} returns a response \textit{valid} or \textit{invalid}. The third function corresponds to \textit{EXEC(o,Payload)}, and represents the execution process of the operation $o$ on the \textit{Payload} performed by the peer. Additionally, we use the variables \textit{tid} as the transaction ID, \textit{SecurityPolicies} to define the set of security parameters configured in the node for the operation $o_{bc}$ (i.e., read and write rights), and \textit{TotEndorPeers} for the total number of endorsing peers in the network.
 
-Now that we already have defined the functions and the variables used in the protocol, we need to integrate it inside of each step of the transactional flow. The transactional process starts with the function \textbf{Initiating Transactions} described in Algorithm~\ref{alg:InitTx}. In this step, we replace the client ID by a random number, then we concatenate the arguments $(crand,o_{bc},Payload,retryFlag)$ to be signed, and then we use the function \textit{BlindSign} to generate the blind signature according to the protocol described in Section~\ref{Okamoto}. Finally, we generate the message \textit{SUBMIT} to be sent to the submitting peer $sp_{bc}$.
+Now that we already have defined the functions and the variables used in the protocol, we need to integrate it inside of each step of the transactional flow. The transactional process starts with the function \textbf{Initiating Transactions} described in Algorithm~\ref{alg:InitTx}. In this step, we replace the client ID by a random number, then we concatenate the arguments $(crand,o_{bc},Payload,retryFlag)$ to be signed, and then we use the function \textit{BlindSign} to generate the blinded signature according to the protocol described in Section~\ref{Okamoto}. Finally, we generate the message \textit{SUBMIT} to be sent to the submitting peer $sp_{bc}$.
 
 \begin{algorithm}[ht]
 \caption{InitTx($o_{bc}$,$Payload$,$retryFlag$,$y$)}
@@ -441,7 +440,7 @@ Now that we already have defined the functions and the variables used in the pro
 \end{algorithmic}
 \end{algorithm}
 
-The second step corresponds to the \textbf{Transaction Proposal} (see Algorithm~\ref{alg:TxProp}). In this process we start by validating the blind signature by using the function $VerifyBlidnSign(M,(\rho,\sigma,\epsilon),y)$, where $M$ is the signed message, $(\rho,\sigma,\epsilon)$ is the blind signature, and $y$ is the CA public key. In the case that the validation process fails, the function rejects the transaction; otherwise, the peer executes the operation $o_{bc}$ on the \textit{Payload}, and finally gets $verDep$ and $stateUpdate$. Finally, the submitting peer generates the \textit{PROPOSE} message to be sent to the endorsers.
+The second step corresponds to the \textbf{Transaction Proposal} (see Algorithm~\ref{alg:TxProp}). In this process we start by validating the blinded signature using the function $VerifyBlidnSign(M,(\rho,\sigma,\epsilon),y)$, where $M$ is the signed message, $(\rho,\sigma,\epsilon)$ is the blinded signature, and $y$ is the CA public key. In the case that the validation process fails, the function rejects the transaction; otherwise, the peer executes the operation $o_{bc}$ on the \textit{Payload}, and finally gets $verDep$ and $stateUpdate$. Finally, the submitting peer generates the \textit{PROPOSE} message to be sent to the endorsing peers.
 
 \begin{algorithm}[ht]
 \caption{TxProp($crand_{bc},sp_{bc},o_{bc},Payload,retryFlag,$ $(\rho,\sigma,\epsilon),y$)}
@@ -457,7 +456,7 @@ The second step corresponds to the \textbf{Transaction Proposal} (see Algorithm~
 \end{algorithmic}
 \end{algorithm}
 
-The next step corresponds to the \textbf{Transaction Endorsement} detailed in Algorithm~\ref{alg:TxEndors}. We start this process validating the blind signature using the function \textit{VerifyBlindSign} for the message $M=(.crand\vert\vert o_{bc} \vert\vert Payload \vert\vert retryFlag)$, the signature $(\rho,\sigma,\epsilon)$, and the CA public key $y$. In the case that the response is valid, we continue validating the \textit{verDep}, \textit{stateUpdate}, and the \textit{securityPolicies}. In the case that the \textit{verDep} corresponds to the last version that the endorsing peer has locally, and the \textit{stateUpdate} is the same that it has as local state, and the \textit{securityPolicies} authorizes the instruction $o$, we endorse the transaction; otherwise, we reject. To endorse the transaction, we use the function \textit{BlindSign} to sign the message \textit{TRANSACTION-VALID} with his corresponding $tid$. Finally, once the transaction is endorsed, the endorser peer creates the \textit{TRANSACTION-VALID} message to be sent to the submitting peer $sp_{bc}$.
+The next step corresponds to the \textbf{Transaction Endorsement} detailed in Algorithm~\ref{alg:TxEndors}. We start this process validating the blinded signature using the function \textit{VerifyBlindSign} for the message $M=(.crand\vert\vert o_{bc} \vert\vert Payload \vert\vert retryFlag)$, the signature $(\rho,\sigma,\epsilon)$, and the CA public key $y$. In the case that the response is valid, we continue validating the \textit{verDep}, \textit{stateUpdate}, and the \textit{securityPolicies}. In the case that the \textit{verDep} corresponds to the last version that the endorsing peer has locally, and the \textit{stateUpdate} is the same that it has as local state, and the \textit{securityPolicies} authorizes the instruction $o$, we endorse the transaction; otherwise, we reject. To endorse the transaction, we use the function \textit{BlindSign} to sign the message \textit{TRANSACTION-VALID} with his corresponding $tid$. Finally, once the transaction is endorsed, the endorser peer creates the \textit{TRANSACTION-VALID} message to be sent to the submitting peer $sp_{bc}$.
 
 \begin{algorithm}[ht]
 \caption{TxEndors($m,trans_{prop},securityPolicies,y$)}
@@ -488,7 +487,7 @@ The next step corresponds to the \textbf{Transaction Endorsement} detailed in Al
 \end{algorithmic}
 \end{algorithm}
 
-Then, the submitting peer $sp_{bc}$ receives the responses from the endorsing peers during the \textbf{Broadcasting to Consensus} step (see Algorithm~\ref{alg:TxBrodCons}). These responses are collected inside of an array called \textit{endorsement}. Once the submitting peer has collected enough valid responses in the \textit{endorsement} array (at least $50\%+1$), it sends the transaction to the orderers to be included into the next block by using the function \textit{broadcast}. 
+Then, the submitting peer $sp_{bc}$ receives the responses from the endorsing peers during the \textbf{Broadcasting to Consensus} step (see Algorithm~\ref{alg:TxBrodCons}). These responses are collected inside of an array called \textit{endorsement}. Once the submitting peer has collected enough valid responses in the \textit{endorsement} array (at least $50\%+1$), the peer sends the transaction to the orderers to be included into the next block by using the function \textit{broadcast}. 
 
 \begin{algorithm}[ht]
 \caption{TxBrodCons($trans_{prop}$, $(\rho,\sigma,\epsilon_{ep})$, $endorsement_{tid}$)}
@@ -502,7 +501,7 @@ Then, the submitting peer $sp_{bc}$ receives the responses from the endorsing pe
 \end{algorithmic}
 \end{algorithm}
 
-Finally, during the \textbf{Commitment} (see Algorithm~\ref{alg:BlockCommitment}) the transaction is validated with his respective endorsement. If the $verDep$ has not changed during the validation process and the $endorsement$ is valid according to the security policies for the operation $o_{bc}$, the transaction is added into the new block. The \textit{NewBlock} is an array where we store the new transactions to be settled, and once we reach the maximum block size (\textit{BlockLengthMax}) configured in the network, we spread the block to be committed by the peers using the function \textit{Commit2Network}. In the case that the validation process fails, the transition is rejected and the \textit{retryFlag} is set to 1. 
+Finally, during the \textbf{Commitment} (see Algorithm~\ref{alg:BlockCommitment}) the transaction is validated with his respective endorsement. If the $verDep$ has not changed during the validation process and the $endorsement$ is valid according to the security policies for the operation $o_{bc}$, the transaction is added into the new block. The \textit{NewBlock} is an array where we store the new transactions to be settled, and once we reach the maximum block size (\textit{BlockLengthMax}) configured in the network, we spread the new block to be committed by the peers using the function \textit{Commit2Network}. In the case that the validation process fails, the transactions in block are rejected and the \textit{retryFlag} for those transactions are set to 1. 
 
 \begin{algorithm}[ht]
 \caption{BlockCommitment(\emph{blob, NewBlock, securityPolicies, retryFlag)}}
@@ -522,22 +521,22 @@ Finally, during the \textbf{Commitment} (see Algorithm~\ref{alg:BlockCommitment}
 \name{} has the following security properties.
 
 \subsection{Consistency}
-A protocol is said to be \emph{consistent} if the protocol has  to ensure that a transaction generated by a valid user stays settled adequately in the blockchain.
+A protocol is said to be \emph{consistent} if ensures that a transaction generated by a valid user stays immutable in the blockchain.
 
 \begin{definition}
-A protocol $\mathbb{P}$ is $T-consistent$ if a transaction $tx$ generated by an honest client $c_{cb}$ to execute a valid operation $o_{bc}$, it is confirmed into the network after $T-round$ of new blocks.
+A protocol $\mathbb{P}$ is $T-consistent$ if a transaction $tx$ generated by an honest client $c_{cb}$ to execute a valid operation $o_{bc}$, it is confirmed and stays immutable in the blockchain after $T-round$ of new blocks.
 \end{definition}
 
 \begin{theorem} \name{} protocol is 1-consistent.
 \end{theorem}
 
 \begin{proof}
-The protocol described in Section \ref{PPPBFT} is a BFT based consensus algorithm. Consistency is achieved by agreeing with the validity of the transaction through a Byzantine Agreement process. Hence, for a transaction $tx$ that has reach a majority of valid endorses for a operation $o_{bc}$, the probability to not settle it in a new block and to have forks in the chain is neglected if we have at most $\lfloor\frac{n-1}{3}\rfloor$ out of total $n$ malicious peers, as it has been shown in~\cite{castro1999practical,li2007beyond} under the terminology of safeness. It is 1-consistent because we do not have any fork so only  one block is needed to wait in order to have a transaction validated.
+The protocol described in Section \ref{PPPBFT} is a BFT based consensus algorithm. Consistency is achieved by agreeing with the validity of the transaction through a Byzantine Agreement process. Hence, for a transaction $tx$ that has reach a majority of valid endorses for a operation $o_{bc}$, the probability to not settle it in a new block and to have forks in the chain is neglected if we have at most $\lfloor\frac{an-1}{3}\rfloor$ out of total $n$ malicious peers, as it has been shown in~\cite{castro1999practical,li2007beyond} under the terminology of safeness. It is 1-consistent because we do not have any fork so only  one block is needed to wait in order to have a transaction validated.
 \end{proof}
 
 \subsection{Liveness}
 
-The liveness property means that a consensus protocol ensures that if an honest client  submitting a peer is broadcasting a valid transaction, a new block is appended to the chain with the transaction. Hence, the protocol must ensure that the blockchain  growths if the valid clients generate valid transactions.
+The liveness property means that a consensus protocol ensures that if an honest client submits a valid transaction, a new block will be appended to the chain with the transaction in it. Hence, the protocol must ensure that the blockchain growths if the valid clients generate valid transactions.
 
 \begin{definition}[Liveness]
 A consensus protocol $\mathbb{P}$ ensures \emph{liveness for a blockchain $C$} if $\mathbb{P}$ ensures that after a period of time $t$, the new version of the blockchain $C'$ is $C' > C$, if a valid client $c_{i_{bc}}$ has broadcasted a valid transaction $tx_i$ during the time $t$. 
@@ -548,12 +547,12 @@ A consensus protocol $\mathbb{P}$ ensures \emph{liveness for a blockchain $C$} i
 \end{theorem}
 
 \begin{IEEEproof}
-\name{} is a PBTF-based consensus protocol. Thus, liveness is achieved if after the transaction validation process, the ordering services propose a new block $B$ with the transactions broadcasted by a client during a period of time $t$. Hence, for valid transactions $tx_i$, where $i\in \mathbb{N}_0$, issued by valid a client $c_{i_{bc}}$ during a period of time $t$, the probability that $C'= C$ is neglected if we have at most $\lfloor\frac{n-1}{3}\rfloor$ out of total $n$ malicious peers~\cite{castro1999practical}.
+\name{} is a PBTF-based consensus protocol. Thus, liveness is achieved if after the transaction validation process, the ordering services propose a new block $B$ with the transactions broadcasted by the clients during a period of time $t$. Hence, for valid transactions $tx_i$, where $i\in \mathbb{N}_0$, issued by valid a client $c_{i_{bc}}$ during a period of time $t$, the probability that $C'= C$ is neglected if we have at most $\lfloor\frac{n-1}{3}\rfloor$ out of total $n$ malicious peers~\cite{castro1999practical}.
 \end{IEEEproof}
 
 \subsection{Blindness}
 
-We use the definition of \emph{blindess} defined by Chaum and Pedersen in~\cite{10.1007/3-540-48071-4_7}, and Schnorr in~\cite{schnorr2001security}. A signature is properly blinded if the signer cannot get any information about the signature if the receiver follows the protocol correctly.
+We use the definition of \emph{blindess} defined by Schnorr in~\cite{schnorr2001security}. A signature is properly blinded if the signer cannot get any information about the signature if the receiver follows the protocol correctly.
 
 \begin{definition}[Blind signature]
 A signing scheme is \emph{blind} if the signature $(m,\rho,\sigma,\epsilon)$ generated by following the protocol, correctly, is statistically independent of the interaction $(a,e,R,S)$ with that provides the view to the signer.
@@ -565,11 +564,11 @@ Okamoto-Schnorr signature $(m,\rho,\delta,\epsilon)$ is statistically independen
 
 \begin{IEEEproof}
 We recall how the protocol works. To generate a blind signature $(m,\rho,\sigma,\epsilon)$ the user chooses randomly $(\beta,\gamma,\delta)\in \mathbb{Z}_q$ to response to the CA's commitment $a$ with the challenge $c=H(m,ag^\beta h^\gamma y^\delta) -\delta$ mod $q$. Then the CA sends $(R,S)=(t-er,u-es)$ to finally obtain the signature by calculating $(\rho,\sigma)=(R-\beta,S-\gamma)$.
-Hence, for the constant interaction $(a,e,R,S)$ and a unique set $(\beta,\gamma,\delta)$ is randomly chosen per signature, we generate a signature $(m,\rho,\delta,\epsilon)=(m,R-\beta,S-\gamma,e+\gamma)$ that is uniformly distributed over all the signature of $m$ due to the random $(\beta,\gamma,\delta) \gets \mathbb{Z}_q$ \cite{schnorr2001security}.
+Hence, for the constant interaction $(a,e,R,S)$ and a unique set $(\beta,\gamma,\delta)$ randomly chosen per signature, we generate a signature $(m,\rho,\delta,\epsilon)=(m,R-\beta,S-\gamma,e+\gamma)$ that is uniformly distributed over all the signature of the message $m$ due to the random $(\beta,\gamma,\delta) \gets \mathbb{Z}_q$ \cite{schnorr2001security}.
 \end{IEEEproof}
 
 \subsection{Non-forgeability}
-The non-forgeability property used in this paper refers to the impossibility for a user to compute a $k+1$ signature on his own after $k$ interactions with a signer; this proves that the only method to generate a valid signature is contacting the CA. This property was proved by Pointcheval and Stern in \cite{pointcheval1996provably}.
+The non-forgeability property used in this paper refers to the impossibility for a user to compute a $k+1$ signature by his own after $k$ interactions with a signer. This proves that the only method to generate a valid signature is contacting the CA. This property was proved by Pointcheval and Stern in \cite{pointcheval1996provably}.
 
 \begin{definition}[One more forgery]
 For any integer \textit{k}, a PPT Turing machine \textit{A} can calculates $k+1$ signatures after \textit{k} interactions with the signer $\Sigma$ with non-negligible probability.  
@@ -592,7 +591,7 @@ We want to calculate the  discrete logarithm of $h$ relatively to $g$ by using o
 \end{IEEEproof}
 
 \section{Conclusion} \label{conclu}
-In this paper, we propose a new consensus algorithm for user identity privacy preserving. This algorithm is based on PBFT and Hyperledger Fabric algorithms. Our algorithm allows the users to issue a blind signature that keeps their identity private during the blockchain transaction validation process and after the transaction is settled. The signing scheme is based on Okamoto-Schnorr blind signature that is a provably secure \cite{pointcheval1996provably} and efficient signing scheme \cite{schnorr1991efficient}. The protocol was designed to implement a blind signature scheme by using the components that any permissioned or private blockchain architecture has. Hence, our algorithm performs the signature blinding process by using the CA that already exists in the permissioned scheme, making it efficient to be implemented in these kinds of blockchain architectures.
+In this paper, we propose a new consensus algorithm for user identity privacy preserving by using a Okamoto-Schnorr blind signature for transactions unlinkability. This algorithm is based on PBFT and Hyperledger Fabric consensus algorithms. Our protocol allows the users to issue a blinded signature that keeps their identity private during the blockchain transaction validation process and after the transaction is settled. The signing scheme is based on Okamoto-Schnorr blind signature that is a provably secure \cite{pointcheval1996provably} and efficient signing scheme \cite{schnorr1991efficient}. The protocol was designed to implement a blind signature scheme to achieve transactions unlinkability by using the components that any permissioned or private blockchain architecture has. Hence, our algorithm performs the signature blinding process by using the CA that already exists in the permissioned scheme, making it efficient to be implemented in these kinds of blockchain architectures.
 
 One open issue is the network privacy. Our protocol is vulnerable to user tracking through the network. Hence, the network privacy is an issue that is not addressed by \name{}. However, as a future work, we would like to integrate Mixnets~\cite{Chaum:1981:UEM:358549.358563} as decentralised application to hide the transaction source and accomplish privacy at a network level.
 
