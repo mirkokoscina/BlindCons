@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  28 DEC 2018 07:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  28 DEC 2018 08:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1117,58 +1117,53 @@ Overfull \hbox (1.56421pt too wide) in paragraph at lines 56--57
 r in many
  []
 
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 59.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 61.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.89284pt too wide) in paragraph at lines 80--81
+Overfull \hbox (2.89284pt too wide) in paragraph at lines 82--83
 \T1/ptm/m/n/10 sen-sus al-go-rithm. Sec-tion []4[] de-scribes our privacy-prese
 rving con-sen-sus al-go-rithm Blind-
  []
 
-
-Underfull \vbox (badness 2126) has occurred while \output is active []
-
- [2]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 87.
-
-[3]
-Overfull \hbox (7.8139pt too wide) in paragraph at lines 152--153
+[2] [3]
+Overfull \hbox (7.8139pt too wide) in paragraph at lines 154--155
 \T1/ptm/m/n/10 peer. This model pro-vides a base of knowl-edge of the net-work 
 mem-bers, mak-ing PBFT [[]2[]]
  []
 
 [4]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 287.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 289.
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--289
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
 [5]
-Overfull \hbox (2.31247pt too wide) in paragraph at lines 327--328
+Overfull \hbox (2.31247pt too wide) in paragraph at lines 329--330
 \T1/ptm/m/n/10 Then, the en-dorser sim-u-lates the trans-ac-tion pro-posal and 
 val-i-dates that the $\OML/cmm/m/it/10 stateUpdate$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 
  []
 
 [6] [7]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 389.
+put line 391.
  [8]
-Overfull \hbox (2.58328pt too wide) in paragraph at lines 418--419
+Overfull \hbox (2.58328pt too wide) in paragraph at lines 420--421
 []\T1/ptm/m/n/10 The next step cor-re-sponds to the \T1/ptm/b/n/10 Trans-ac-tio
 n En-dorse-ment \T1/ptm/m/n/10 de-tailed in Al-go-rithm []3[].
  []
@@ -1178,19 +1173,19 @@ Underfull \vbox (badness 2376) has occurred while \output is active []
 
  [9]
 [10] [11] [12] (./main.bbl [13]) [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 560.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 560.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 562.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 562.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 560.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 560.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 562.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 562.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 62C2C8E27755BD86093095C7986DD513;110.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 560.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 562.
  ) 
 Here is how much of TeX's memory you used:
  23471 strings out of 492649
  457519 string characters out of 6129622
- 572270 words of memory out of 5000000
+ 572236 words of memory out of 5000000
  26784 multiletter control sequences out of 15000+600000
  54653 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1215,7 +1210,7 @@ onts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/tim
 es/utmbi8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 267912 bytes).
+Output written on main.pdf (14 pages, 268112 bytes).
 PDF statistics:
  363 PDF objects out of 1000 (max. 8388607)
  320 compressed objects within 4 object streams
