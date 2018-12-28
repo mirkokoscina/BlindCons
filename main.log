@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  27 DEC 2018 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  28 DEC 2018 07:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -163,6 +163,9 @@ Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
 
@@ -1007,27 +1010,31 @@ LaTeX Warning: Unused global option(s):
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 36.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 36.
 
+(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1061,7 +1068,7 @@ e
 ))
 \c@lstlisting=\count182
 \AtBeginShipoutBox=\box92
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 36.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1072,152 +1079,146 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 \c@section@level=\count183
 LaTeX Info: Redefining \Ref on input line 515.
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 36.
+LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \nameref on input line 36.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Info: Redefining \Ref on input line 35.
-LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+LaTeX Info: Redefining \Ref on input line 36.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 53.
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 52.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 53.
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 52.
+(hyperref)                removing `\\' on input line 53.
 
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 55.
+
+Overfull \hbox (1.56421pt too wide) in paragraph at lines 56--57
+[]\T1/ptm/m/n/9 Private blockchains are be-com-ing grad-u-ally more sought-afte
+r in many
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 59.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
-Overfull \hbox (3.71112pt too wide) in paragraph at lines 135--136
-[]\T1/cmr/m/n/10 The Okamoto-Schnorr blind sig-na-ture scheme is suit-able for 
-pri-vate blockchain
- []
-
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 275--277
-
+Overfull \hbox (2.89284pt too wide) in paragraph at lines 80--81
+\T1/ptm/m/n/10 sen-sus al-go-rithm. Sec-tion []4[] de-scribes our privacy-prese
+rving con-sen-sus al-go-rithm Blind-
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2126) has occurred while \output is active []
 
- [5]
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+ [2]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 87.
+
+[3]
+Overfull \hbox (7.8139pt too wide) in paragraph at lines 152--153
+\T1/ptm/m/n/10 peer. This model pro-vides a base of knowl-edge of the net-work 
+mem-bers, mak-ing PBFT [[]2[]]
+ []
+
+[4]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 287.
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
+
+ []
+
+[5]
+Overfull \hbox (2.31247pt too wide) in paragraph at lines 327--328
+\T1/ptm/m/n/10 Then, the en-dorser sim-u-lates the trans-ac-tion pro-posal and 
+val-i-dates that the $\OML/cmm/m/it/10 stateUpdate$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
-[6] [7] [8]
+[6] [7]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 369.
-
-Overfull \hbox (4.74837pt too wide) in paragraph at lines 380--381
-[]\T1/cmr/m/n/10 The sec-ond step cor-re-sponds to the \T1/cmr/bx/n/10 Trans-ac
--tion Pro-posal \T1/cmr/m/n/10 (see Al-go-rithm []2[]).
+put line 389.
+ [8]
+Overfull \hbox (2.58328pt too wide) in paragraph at lines 418--419
+[]\T1/ptm/m/n/10 The next step cor-re-sponds to the \T1/ptm/b/n/10 Trans-ac-tio
+n En-dorse-ment \T1/ptm/m/n/10 de-tailed in Al-go-rithm []3[].
  []
 
 
-Overfull \hbox (3.86377pt too wide) in paragraph at lines 396--397
-\T1/cmr/m/n/10 func-tion \T1/cmr/m/it/10 Ver-i-fy-Blind-Sign \T1/cmr/m/n/10 for
- the mes-sage $\OML/cmm/m/it/10 M \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 :crand\OM
-S/cmsy/m/n/10 jj\OML/cmm/m/it/10 o[]\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 Payload
-\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 retryFlag\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 ,
+Underfull \vbox (badness 2376) has occurred while \output is active []
 
- []
-
-[9] [10]
-Overfull \hbox (11.6597pt too wide) in paragraph at lines 478--480
-[]\T1/cmr/bx/n/10 (Liveness). \T1/cmr/m/it/10 A con-sen-sus pro-to-col $\U/msb/
-m/n/10 P$ \T1/cmr/m/it/10 en-sures \T1/cmr/m/n/10 live-ness for a blockchain
- []
-
-[11]
-Overfull \hbox (0.96902pt too wide) in paragraph at lines 503--505
-[]\T1/cmr/m/n/10 We re-call how the pro-to-col works. To gen-er-ate a blind sig
--na-ture $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m; ^^Z; ^^[; ^^O\OT1/cmr/m/n/10 )$
- []
-
-[12] [13] (./main.bbl
-Underfull \hbox (badness 6859) in paragraph at lines 39--43
-[]\T1/cmr/m/n/9 MyHealthMyData Con-sor-tium.  My health my data.  []$\T1/cmtt/m
-/n/9 http : / / www .
- []
-
-[14]) [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 538.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 538.
+ [9]
+[10] [11] [12] (./main.bbl [13]) [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 560.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 560.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 538.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 538.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 560.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 560.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 62C2C8E27755BD86093095C7986DD513;110.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 538.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 560.
  ) 
 Here is how much of TeX's memory you used:
- 23428 strings out of 492649
- 457198 string characters out of 6129622
- 572843 words of memory out of 5000000
- 26742 multiletter control sequences out of 15000+600000
- 22026 words of font info for 53 fonts, out of 8000000 for 9000
+ 23471 strings out of 492649
+ 457519 string characters out of 6129622
+ 572270 words of memory out of 5000000
+ 26784 multiletter control sequences out of 15000+600000
+ 54653 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,18n,82p,1269b,771s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-18/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2018/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2018/tex
-mf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2018/texmf-d
-ist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2018/texmf-dis
-t/fonts/type1/public/cm-super/sfcc0900.pfb></usr/local/texlive/2018/texmf-dist/
-fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2018/texmf-dist/fo
-nts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2018/texmf-dist/font
-s/type1/public/cm-super/sfti0700.pfb></usr/local/texlive/2018/texmf-dist/fonts/
-type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
-pe1/public/cm-super/sfti1000.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
-1/public/cm-super/sftt0900.pfb>
-Output written on main.pdf (15 pages, 450188 bytes).
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2018/texmf-dist/fonts
+/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist/f
+onts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
+e1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/tim
+es/utmbi8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (14 pages, 267912 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
- 349 compressed objects within 4 object streams
- 141 named destinations out of 1000 (max. 500000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
+ 136 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

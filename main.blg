@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: nicfg.bib
 Warning--empty journal in nakamoto2008bitcoin
-You've used 25 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            643 strings with 7724 characters,
-and the built_in function-call counts, 8799 in all, are:
-= -- 912
-> -- 342
-< -- 11
-+ -- 137
-- -- 111
-* -- 528
-:= -- 1394
-add.period$ -- 86
-call.type$ -- 25
-change.case$ -- 130
+            617 strings with 7047 characters,
+and the built_in function-call counts, 7271 in all, are:
+= -- 751
+> -- 280
+< -- 10
++ -- 112
+- -- 91
+* -- 415
+:= -- 1153
+add.period$ -- 73
+call.type$ -- 21
+change.case$ -- 108
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 366
-empty$ -- 735
-format.name$ -- 111
-if$ -- 1931
+cite$ -- 22
+duplicate$ -- 310
+empty$ -- 613
+format.name$ -- 91
+if$ -- 1606
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 19
-newline$ -- 130
-num.names$ -- 52
-pop$ -- 165
+int.to.str$ -- 21
+missing$ -- 15
+newline$ -- 110
+num.names$ -- 44
+pop$ -- 146
 preamble$ -- 1
-purify$ -- 103
+purify$ -- 85
 quote$ -- 0
-skip$ -- 276
+skip$ -- 235
 stack$ -- 0
-substring$ -- 552
-swap$ -- 115
-text.length$ -- 11
+substring$ -- 424
+swap$ -- 101
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
+type$ -- 84
 warning$ -- 1
-while$ -- 93
-width$ -- 27
-write$ -- 284
+while$ -- 76
+width$ -- 23
+write$ -- 239
 (There was 1 warning)

@@ -8,11 +8,6 @@ Elli Androulaki, Artem Barger, Vita Bortnikov, Christian Cachin, Konstantinos
   blockchains.
 \newblock {\em arXiv preprint arXiv:1801.10228}, 2018.
 
-\bibitem{bracha1985asynchronous}
-Gabriel Bracha and Sam Toueg.
-\newblock Asynchronous consensus and broadcast protocols.
-\newblock {\em Journal of the ACM (JACM)}, 32(4):824--840, 1985.
-
 \bibitem{castro1999practical}
 Miguel Castro, Barbara Liskov, et~al.
 \newblock Practical byzantine fault tolerance.
@@ -66,22 +61,10 @@ IBM.
 \newblock \url{http://www.tradelens.com/}, 2016.
 \newblock [Online; accessed Sept. 2018].
 
-\bibitem{lamport1982byzantine}
-Leslie Lamport, Robert Shostak, and Marshall Pease.
-\newblock The byzantine generals problem.
-\newblock {\em ACM Transactions on Programming Languages and Systems (TOPLAS)},
-  4(3):382--401, 1982.
-
 \bibitem{li2007beyond}
 Jinyuan Li and David Mazi{\'e}res.
 \newblock Beyond one-third faulty replicas in byzantine fault tolerant systems.
 \newblock In {\em NSDI}, 2007.
-
-\bibitem{martin2006fast}
-J-P Martin and Lorenzo Alvisi.
-\newblock Fast byzantine consensus.
-\newblock {\em IEEE Transactions on Dependable and Secure Computing},
-  3(3):202--215, 2006.
 
 \bibitem{nakamoto2008bitcoin}
 Satoshi Nakamoto.
@@ -94,12 +77,6 @@ Tatsuaki Okamoto.
   corresponding signature schemes.
 \newblock In {\em Annual International Cryptology Conference}, pages 31--53.
   Springer, 1992.
-
-\bibitem{pass2017analysis}
-Rafael Pass, Lior Seeman, and Abhi Shelat.
-\newblock Analysis of the blockchain protocol in asynchronous networks.
-\newblock In {\em Annual International Conference on the Theory and
-  Applications of Cryptographic Techniques}, pages 643--673. Springer, 2017.
 
 \bibitem{pointcheval1996provably}
 David Pointcheval and Jacques Stern.
