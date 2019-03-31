@@ -160,26 +160,26 @@ To exemplify this process, consider that we have a client $c_{bc}$ that needs to
 
 \begin{figure*}[tb]
 \centering
-\fbox{\begin{tikzpicture}[node distance=0.3cm,auto,>=stealth',scale=1,thick]
+\fbox{\begin{tikzpicture}[node distance=0.7cm,auto,>=stealth',scale=1,thick]
     %Nodes definition
-    \node[scale=0.7] (peer) {Peer};
-    \node[left = of peer, scale=0.83] (ord) {Orderers};
-    \node[left = of ord, scale=0.83] (endp3) {Endor Peer 3};
-    \node[left = of endp3,scale=0.83] (endp2) {Endor Peer 2};
-    \node[left = of endp2,scale=0.83] (endp1) {Endor Peer 1};
-    \node[left = of endp1, scale=0.83] (sp) {Submitting Peer};
-    \node[left = of sp, scale=0.83] (client) {Client};
-    \node[below of=client,scale=0.9, node distance=0.4cm] (client1) {};
-    \node[below of=client1,scale=0.9, node distance=0.4cm] (client2) {};
-    \node[below of=client2,scale=0.9, node distance=0.4cm] (client3) {};
-    \node[below of=client3,scale=0.9, node distance=0.4cm] (client4) {};
-    \node[below of=client4,scale=0.9, node distance=0.4cm] (client5) {};
-    \node[below of=client5,scale=0.9, node distance=0.4cm] (client6) {};
-    \node[below of=client6,scale=0.9, node distance=0.4cm] (client7) {};
-    \node[below of=client7,scale=0.9, node distance=0.4cm] (client8) {};
-    \node[below of=client8,scale=0.9, node distance=0.4cm] (client9) {};
-    \node[below of=client9,scale=0.9, node distance=0.4cm] (client10) {};
-    \node[below of=client10,scale=0.9, node distance=0.4cm] (client_ground) {};
+    \node[scale=1] (peer) {Peer};
+    \node[left = of peer, scale=1] (ord) {Orderers};
+    \node[left = of ord, scale=1] (endp3) {Endor Peer 3};
+    \node[left = of endp3,scale=1] (endp2) {Endor Peer 2};
+    \node[left = of endp2,scale=1] (endp1) {Endor Peer 1};
+    \node[left = of endp1, scale=1] (sp) {Client};
+   % \node[left = of sp, scale=0.83] (client) {Client};
+    %\node[below of=client,scale=0.9, node distance=0.4cm] (client1) {};
+    %\node[below of=client1,scale=0.9, node distance=0.4cm] (client2) {};
+    %\node[below of=client2,scale=0.9, node distance=0.4cm] (client3) {};
+    %\node[below of=client3,scale=0.9, node distance=0.4cm] (client4) {};
+    %\node[below of=client4,scale=0.9, node distance=0.4cm] (client5) {};
+    %\node[below of=client5,scale=0.9, node distance=0.4cm] (client6) {};
+    %\node[below of=client6,scale=0.9, node distance=0.4cm] (client7) {};
+    %\node[below of=client7,scale=0.9, node distance=0.4cm] (client8) {};
+    %\node[below of=client8,scale=0.9, node distance=0.4cm] (client9) {};
+    %\node[below of=client9,scale=0.9, node distance=0.4cm] (client10) {};
+    %\node[below of=client10,scale=0.9, node distance=0.4cm] (client_ground) {};
     \node[below of=sp,scale=0.9, node distance=0.4cm] (sp1) {};
     \node[below of=sp1,scale=0.9, node distance=0.4cm] (sp2) {};
     \node[below of=sp2,scale=0.9, node distance=0.4cm] (sp3) {};
@@ -248,7 +248,7 @@ To exemplify this process, consider that we have a client $c_{bc}$ that needs to
     \node[below of=peer10,scale=0.9, node distance=0.4cm] (peer_ground) {};
 
     % Vertical Lines
-    \draw (client) -- (client_ground);
+    %\draw (client) -- (client_ground);
     \draw (sp) -- (sp_ground);
     \draw (endp1) -- (endp1_ground);
     \draw (endp2) -- (endp2_ground);
@@ -257,21 +257,22 @@ To exemplify this process, consider that we have a client $c_{bc}$ that needs to
     \draw (peer) -- (peer_ground);
 
     %Initiating Transactions
-    \draw[->] ($(client)!0.1!(client_ground)$) -- node[below,scale=1,midway]{$1$} ($(sp)!0.1!(sp_ground)$);
+  %  \draw[->] ($(client)!0.1!(client_ground)$) -- node[below,scale=1,midway]{$1$} ($(sp)!0.1!(sp_ground)$);
     %Transaction Proposal
-    \draw[->] ($(sp)!0.1!(sp_ground)$) -- node[above,scale=1,midway]{$2$} ($(endp12)!0.1!(endp1_ground)$);
-    \draw[->] ($(sp)!0.1!(sp_ground)$) -- node[above,scale=1,midway]{$2$} ($(endp23)!0.1!(endp2_ground)$);
-    \draw[->] ($(sp)!0.1!(sp_ground)$) -- node[above,scale=1,midway]{$2$} ($(endp34)!0.1!(endp3_ground)$);
+    \draw[->] ($(sp)!0.1!(sp_ground)$) -- node[below,scale=1,pos=0.3]{$2$} ($(endp12)!0.1!(endp1_ground)$);
+    \draw[->] ($(sp)!0.1!(sp_ground)$) -- node[below,scale=1,pos=0.6]{$2$} ($(endp23)!0.1!(endp2_ground)$);
+    \draw[->] ($(sp)!0.1!(sp_ground)$) -- node[above,scale=1,near end]{$2$} ($(endp34)!0.1!(endp3_ground)$);
 
     %Endorsing Transactions
     \draw[->] ($(endp12)!0.1!(endp1_ground)$) -- node[below,scale=1,midway]{$3$} ($(sp3)!0.1!(sp_ground)$);
     \draw[->] ($(endp23)!0.1!(endp2_ground)$) -- node[below,scale=1,midway]{$3$} ($(sp4)!0.1!(sp_ground)$);
     \draw[->] ($(endp34)!0.1!(endp3_ground)$) -- node[below,scale=1,midway]{$3$} ($(sp5)!0.1!(sp_ground)$);
     %Broadcasting to Consensus
-    \draw[->] ($(sp6)!0.1!(sp_ground)$) -- node[above,scale=1,midway]{$4$} ($(ord7)!0.1!(ord_ground)$);
+    \draw[->] ($(sp6)!0.1!(sp_ground)$) -- node[above,scale=1,pos=0.6]{$4$} ($(ord7)!0.1!(ord_ground)$);
     %Commit
-    \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,midway]{$5$} ($(endp18)!0.1!(endp1_ground)$);
-    \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,midway]{$5$} ($(endp29)!0.1!(endp2_ground)$);
+    \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,pos=0.9]{$5$} ($(sp7)!0.1!(sp_ground)$);
+    \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,pos=0.8]{$5$} ($(endp18)!0.1!(endp1_ground)$);
+    \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,pos =0.7]{$5$} ($(endp29)!0.1!(endp2_ground)$);
     \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,midway]{$5$} ($(endp310)!0.1!(endp3_ground)$);
     \draw[->] ($(ord7)!0.1!(ord_ground)$) -- node[below,scale=1,midway]{$5$} ($(peer10)!0.1!(peer_ground)$);
     
