@@ -64,27 +64,25 @@ Currently, blockchain is one of the most popular distributed systems. One of the
 
 Many groups of companies have proposed \emph{Private Blockchains} or \emph{Permissioned Blockchains}, like for instance the MyHealthMyData  consortium~\cite{MHMD}, which propose to connect hospitals and research centers across Europe to share medical data through a private blockchain network. These blockchains aim to manage data storage on a few nodes controlled by a company or a consortium in order to validate the transactions fastest, consume less energy and reduce the cost of mining. Another example is the project PlasticTwist~\cite{PTWIST} that creates a new circular economy based on an ERC20 token implemented on the top a permissioned ledger to encourage plastic recycling in Europe. Moreover, Maersk and IBM have developed TradeLens~\cite{Tradelens}, a supply chain system supported by the permissioned blockchain Hyperledger Fabric.  
 
-Use cases, like the examples presented above, are proliferating due to the
-blockchain adoption in closed ecosystems and business
-applications. Due to this, the European Blockchain Observatory and Forum
-has published a technical report~\cite{BlockchainGDPR} where it
-recommends to use private or permissioned blockchains for storing sensitive data. Therefore, the absence of mechanisms to keep the user's privacy in a permissioned scheme is turning highly relevant.
+Use cases, like the examples presented above, are proliferating due to the blockchain adoption in closed ecosystems and business applications. Due to this, the European Blockchain Observatory and Forum has published a technical report~\cite{BlockchainGDPR} where it recommends to use private or permissioned blockchains for storing sensitive data. Therefore, the absence of mechanisms to keep the user's privacy in a permissioned scheme is turning highly relevant.
 
 
 \paragraph*{Contributions:} The main contribution of this paper is the design of a new privacy-preserving consensus algorithm for private blockchains. We aim to ensure the unlinkability between a transaction recorded in the blockchain and the user that generated it. With our algorithm, we increase the privacy level of such blockchains. For this purpose, we designed a privacy-preserving consensus called \name{}. Our algorithm relies on Okamoto-Schnorr's blind signature scheme~\cite{okamoto1992provably} to ensure transaction unlinkability. Moreover, we use a Byzantine Fault Tolerance (BFT) consensus algorithm for the generation and commitment of new blocks.
 
 
 \paragraph*{Related Work:}
-Blockchain platforms such as Bitcoin~\cite{nakamoto2008bitcoin} and Ethereum~\cite{wood2014ethereum} are popular due to the ``anonymity'' that their cryptocurrencies offer. However, Bitcoin is still showing issues with transaction linkability and traceability.  During the last years some improvements have been proposed to increase Bitcoin anonymity~\cite{saxena2014increasing}, and also new cryptocurrencies have been developed to overcome these issues like Zcash and Monero. In the case of Zcash ~\cite{hopwood2016zcash}, the protocol achieves anonymity by using ZK-SNARKs as cryptographic proof. In the same line, Bulletproofs~\cite{REFERENCE} proposes a new NIZKP protocol with short proofs without relying on trusted setup for confidential transactions or privacy preserving smart contracts. On the other hand, Monero is a protocol based on Cryptonote~\cite{van2013cryptonote} that achieves unlinkability and untraceability by using a one-time random address and ring signatures.
+Blockchain platforms such as Bitcoin~\cite{nakamoto2008bitcoin} and Ethereum~\cite{wood2014ethereum} are popular due to the ``anonymity'' that their cryptocurrencies offer. However, Bitcoin is still showing issues with transaction linkability and traceability.  During the last years some improvements have been proposed to increase Bitcoin anonymity~\cite{saxena2014increasing}, and also new cryptocurrencies have been developed to overcome these issues like Zcash and Monero. In the case of Zcash ~\cite{hopwood2016zcash}, the protocol achieves anonymity by using ZK-SNARKs as cryptographic proof. In the same line, Bulletproofs~\cite{bunz2018bulletproofs} proposes a new NIZKP protocol with short proofs without relying on trusted setup for confidential transactions or privacy preserving smart contracts. On the other hand, Monero is a protocol based on Cryptonote~\cite{van2013cryptonote} that achieves unlinkability and untraceability by using a one-time random address and ring signatures.  Although all these protocols aim to improve transactions' privacy, they are designed for permissionless blockchains, where the transaction linkability differs from permssioned architecture where the users are not anonymous. Hence, there is a strong link between the transaction signature and the user that is triggering it.
 
-A different approach to ensure anonymity is the eCash~\cite{chaum1983blind}~\cite{chaum1988untraceable} model proposed for Bitcoin in~\cite{heilman2016blindly}. However, the idea to use a third party to generate a blind voucher is not aligned with the principle of decentralisation that Bitcoin or any other permissionless blockchains have. Although there are several works on blockchain privacy for permissionless ledgers, as far as we know, there is no formal protocol that addresses the anonymity issue that permissioned ledgers have.
+A different approach to ensure anonymity is the eCash~\cite{chaum1983blind}~\cite{chaum1988untraceable} model proposed for Bitcoin in~\cite{heilman2016blindly}. However, the idea to use a third party to generate a blind voucher is not aligned with the principle of decentralisation that Bitcoin or any other permissionless blockchains have. 
+
+Notwithstanding several works on blockchain privacy for permissionless ledgers have been published, as far as we know, there is no formal protocol that addresses the transaction linkability issue in permissioned ledgers
 
 \paragraph*{Outline:}  Section~\ref{back} recalls Permissioned Blockchains and Okamoto-Schnorr's blind signature scheme, then in Section~\ref{PBFTHF} we introduce the BFT consensus mechanism. Section~\ref{PPPBFT} describes our privacy-preserving consensus algorithm \name{}. Before concluding, we explicit the security properties of our consensus algorithm in Section~\ref{PROP}.
 
 
 \section{Preliminars} \label{back}
 
-We start by recalling Permissioned Blockchains, then we present a blind version of the Schnorr's signature scheme proposed by Okamoto et al. in~\cite{okamoto1992provably}.
+We start by introducing permissioned blockchains, and then we present a blind version of the Schnorr's signature scheme proposed by Okamoto et al. in~\cite{okamoto1992provably}.
 
 \subsection{Permissioned Blockchain}
 \label{Permissioned}
@@ -143,28 +141,22 @@ Let $p$ and $q$ be two large primes with $q|p-1$. Let $G$ be a cyclic group of p
 \label{dia:oss}
 \end{figure*}
 
-The Okamoto-Schnorr blind signature scheme is suitable for private
-blockchain architecture due to the blinding process that can be
-performed by the same authority responsible for the enrollment process
-(see Figure~\ref{dia:oss}, where the authority $A$ blinds the
-signature of the message proposed by the user). Furthermore, by using
-this scheme, we ensure user unlinkability, keeping the information stored in the ledger open to everybody.
+The Okamoto-Schnorr blind signature scheme is suitable for private blockchain architecture due to the blinding process can be performed by the same authority responsible for the enrollment process (see Figure~\ref{dia:oss}, where the authority $A$ blinds the signature of the message proposed by the user). Therefore, by using this scheme, we ensure user-transaction unlinkability.
 
-\section{BFT based Consensus for Private Blockchain Architecture}
+\section{Byzantine Fault Tolerant based Consensus for Private Blockchain Architecture}
 \label{PBFTHF}
 
-The blockchain is a decentralised database organised in blocks that are appended one behind the other by using a hash pointer. Each block contains records that include the data to be stored into the chain. The blockchain design makes it suitable to be used as a distributed ledger, due to the record organisation inside a block (i.e., financial transactions) and the hash chain between blocks that makes it resistant to malicious modifications. As any other distributed system, blockchain needs a consensus algorithm to replicate the chain in each node member of the network. Nevertheless, the selection or design of the consensus algorithm must be consistent with the blockchain architecture and the openness of the system.
+The blockchain is a decentralised database organised in blocks that are appended one behind the other by using a hash pointer. Each block contains records that include the data to be stored into the chain. The blockchain design makes it suitable to be used as a distributed ledger, due to the record organisation inside a block (i.e., financial transactions) and the hash chain between blocks that makes it resistant to malicious modifications. The blockchain uses a consensus algorithm to replicate the chain in each node member of the network. Nevertheless, the selection or design of the consensus algorithm must be consistent with the blockchain architecture and the openness of the system.
 
-In permissioned blockchain architectures, every user must be enrolled into the system through a Certificate Authority (CA) before joining the network. The Certificate Authority is responsible for generating the user credential for each new client or peer. This model provides a base of knowledge of the network members, making PBFT~\cite{castro1999practical}  based algorithms suitable for the blockchain replication process.  
+In permissioned blockchain architectures, every user must be enrolled into the system through Certificate Authorities (CA) or user administrators before joining the network. These authorities are responsible for generating the user credential for each new client or peer. This model provides a base of knowledge of the network members, making PBFT~\cite{castro1999practical} or BFT-Smart~\cite{6903593} based algorithms suitable for the blockchain replication process.  
 
-Our consensus approach for permissioned ledger has an opposite aim of the permissionless replication protocol. The security of the consensus
-algorithm in a permissionless architecture is achieved by proving the node's honesty by expending its resources (i.e., computing capacity, power consumption, stakes, among others). In contrast, a PBFT-based protocol reaches the consensus accepting as valid the result proposed by the nodes majority. 
+Our consensus approach for permissioned ledger has an opposite aim of the permissionless replication protocol. The security of the consensus algorithm in a permissionless architecture is achieved by proving the node's honesty by expending its resources (i.e., computing capacity, power consumption, stakes, among others). In contrast, a BFT-based protocols reach the consensus accepting as valid the result proposed by the nodes majority. 
 
-Our consensus algorithm is based on BFT and the \textit{execute-order-validate} process used in Hyperledger Fabric~\cite{androulaki2018hyperledger} since version 1.0. In this protocol, each transaction passes through these three stages. The \textit{execution} phase triggers the transaction and then it is validated by endorsement. In the \textit{order} phase, the transactions are ordered according to the consensus protocol. Finally, the \textbf{validation} phase checks the security policies per operation and application types.
+Our consensus algorithm is based on BFT and the \textit{execute-order-validate} process used in Hyperledger Fabric~\cite{androulaki2018hyperledger} since version 1.0. In this protocol, each transaction passes through these three stages. The \textit{execution} phase triggers the transaction and then it is validated by endorsement. In the \textit{order} phase, the transactions are ordered according to the BFT consensus protocol. Finally, the \textbf{validation} phase checks the security policies per operation and application types.
 
-In the case of our blockchain PBFT-based consensus algorithms, we start with a client $c_{bc}$ that has the same role than a client in the PBFT protocol. We then have submitting peers $sp_{i_{bc}}$ who send the transaction proposal with the instructions indicated by the client to the endorsing peers in order to validate the transaction. This process is analogous than the executed by the primary in the PBFT algorithm, that sends the message with the instructions to the backups to validate it. As for the transaction endorsement, the endorsing peers send their responses to the submitting peer, which is responsible for collecting the responses after the validation process is concluded. Finally, the submitting peer sends the transaction to the orderers to generate the new block to be committed by the nodes members to the network. This process differs from the PBFT, where the backups respond to the other backups, and all of them wait to have enough \textbf{prepare} and \textbf{commit} messages to then reply directly to the client, without pass through the primary. 
+In the case of our BFT-based consensus algorithms, we start with a client $c_{bc}$ that has the same role than a client in the PBFT protocol. The client $c_{bc}$ sends a transaction proposal with the instructions to be executed in the blockchain to the endorsing peers in order to validate the transaction. This process is analogous than the executed by the primary in the original PBFT algorithm, that sends the message with the instructions to the backups to validate it. As for the transaction endorsement, the endorsing peers $ep_{bc_{i}}$ send their responses to the client, which collects it after the validation process is concluded. If the transaction is valid, the client $c_{bc}$ sends the transaction to the orderers $ordp_{bc_{i}}$ to add it into the new block that will be committed by the nodes members of the network. The orderes are responsible to propose and agreed the new block to be appended to the chain. This process is analogous to PBFT, where one orderer is the leader and the other are the backups. The orderer leader will collect a group of transactions and will organise them by order inside of a new block. Then the orderer leader sends the block proposal to the orderers backups to validate it. Each orderer backup will validate the proposal and responds to the rest of the orderer with a \textbf{prepare} message. Once the orderers have received enough valid \textbf{prepare} responses, they will submit a \textbf{commit} messages to the orderers, client and the nodes responsible to keep a local version of the blockchain.
 
-To exemplify this process, consider that we have a client $c_{bc}$ that needs to execute an operation $o_{bc}$ on our PBFT-based blockchain protocol. To process this request, we need to execute the following five steps: Initiating Transactions, Transaction Proposal, Transaction Endorsement, Broadcasting to Consensus and Commitment (see Figure~\ref{dia:pbft_BC}). Nevertheless,  before we start describing the protocol, we introduce the notation used in this paper. In any distributed system, the information is passing through the peers or nodes within the network by using messages. Hence, we  denote a message by using $<\cdot,...,\cdot>$, where $\cdot$ corresponds to the message arguments. Moreover, we use the notation $(\cdot,...,\cdot)$ to group arguments inside a message.
+To exemplify this process, consider that we have a client $c_{bc}$ that needs to execute an operation $o_{bc}$ on our BFT-based blockchain protocol. To process this request, we need to execute the following four steps: Transaction Proposal, Transaction Endorsement, Broadcasting to Consensus and Commitment (see Figure~\ref{dia:pbft_BC}). Nevertheless,  before we start describing the protocol, we introduce the notation used in this paper. In any distributed system, the information is passing through the peers or nodes within the network by using messages. Hence, we  denote a message by using $<\cdot,...,\cdot>$, where $\cdot$ corresponds to the message arguments. Moreover, we use the notation $(\cdot,...,\cdot)$ to group arguments inside a message.
 
 \begin{figure*}[tb]
 \centering
@@ -288,12 +280,20 @@ To exemplify this process, consider that we have a client $c_{bc}$ that needs to
 \label{dia:pbft_BC}
 \end{figure*}
 
+\Par{\textit{\textbf{Transaction Proposal:}}}
+The client $c_{bc}$ generates a message to execute specific operations $o_{bc}$ to be resolved by the network. This message corresponds to a transaction proposal message to be sent to the endorsing peer. The transaction proposal consists in invoking the operations $o_{bc}$ and computing the state update denoted by \textit{stateUpdate} and version dependency denoted by $\textit{verDep}$. The version dependencies relate the variables involve in the transaction with the local version of the variable in the client's node and their respective operations. For example: if a client wants to read and write in the blockchain, the version dependency is a tuple $\left(readset,writeset\right)$ where:
 
-\Par{\textit{\textbf{Initiating Transactions:}}}
-In the initiating transactions step, the client $c_{bc}$ generates a message to invoke specific operations $o_{bc}$ to be resolved by the network. The message is sent to a submitting peer, which is responsible for continuing with the next step called \textit{Transaction Proposal}. In the case that the submitting peer is offline or misbehaving, the client sends the transaction to the next submitting peer. The structure of the message is presented below:~\\
+\begin{compactitem}
+\item for every variable $k$ read by the transaction, the pair $(k,s(k).version)$ is added to readset,
+\item for every variable $k$ modified by the transaction, the pair $(k,s(k).version)$ is added to $writeset$.
+\end{compactitem}
+
+Once the execution of the operations $o_{bc}$ triggered by the client $c_{bc}$ is complete, the client $c_{bc}$ generates the \textit{transaction proposal} message and then submits it to the endorsing peers. The transaction proposal message is defined as:
 
 \noindent\fbox{\begin{minipage}[c]{0.98\textwidth}
-$<\textit{SUBMIT},c_{bc},o_{bc},txPayload,\sigma_c,retryFlag>$, where:
+$<\textit{PROPOSAL},trans_{prop}>$, where:
+\begin{compactitem}
+\item $trans_{prop}$:= $(c_{bc},o_{bc},txPayload,stateUpdate,$ $verDep, \sigma_c)$.
 \begin{compactitem}
 \item $c_{bc}$: is the client ID,
 \item $o_{bc}$: refers to the operations implemented in the distributed system,
@@ -301,38 +301,16 @@ $<\textit{SUBMIT},c_{bc},o_{bc},txPayload,\sigma_c,retryFlag>$, where:
 \item $\sigma_c$: is the client signature,
 \item $retryFlag$: boolean variable to identify whether to retry the transaction submission in case of the transaction fails. 
 \end{compactitem}
-\end{minipage}}
-
-\Par{\textit{\textbf{Transaction Proposal:}}}
-The submitting peer $sp_{bc}$ receives the transaction and verifies
-the client's signature $\sigma_{c}$. Then, the submitter prepares the transaction proposal message to be sent to the endorsing peer. The transaction proposal consists in invoking the operations $o_{bc}$ and computing the state update denoted by \textit{stateUpdate} and version
-dependency denoted by $\textit{verDep}$. The version dependencies relate to the variables involve in the transaction with the node local version of the variable and their respective operations. For example: if a client wants to read and write in the blockchain, the version dependency is a tuple $\left(readset,writeset\right)$ where:
-
-\begin{compactitem}
-\item for every variable $k$ read by the transaction, the pair $(k,s(k).version)$ is added to readset,
-\item for every variable $k$ modified by the transaction, the pair $(k,s(k).version)$ is added to $writeset$.
-\end{compactitem}
-
-Once the execution of the operations $o_{bc}$ triggered by the client
-$c_{bc}$ is complete, the submitting peer generates the
-\textit{transaction proposal} message and then submits it to the
-endorsing peer. The transaction proposal message is defined as:
-
-\noindent\fbox{\begin{minipage}[c]{0.98\textwidth}
-$<\textit{PROPOSAL},m_c,trans_{prop}>$, where:
-\begin{compactitem}
-\item $m_c$:= $\left(c_{bc},o_{bc},txPayload,\sigma_c\right)$,
-\item $trans_{prop}$:= $(sp_{bc},o_{bc},Payload,stateUpdate,$ $verDep)$.
 \end{compactitem}
 \end{minipage}}
 
-\Par{\textit{\textbf{Transaction Endorsement:}}} The endorsing peer ($ep_{bc}$) verifies the client signature $\sigma_c$ coming in $m_c$ and checks that the operations $o_{bn}$ in $m_c$ and $trans_{prop}$ are the same. Then, the endorser simulates the transaction proposal and validates that the $stateUpdate$ and $verDep$ are correct. If the validation process is successful, the endorsing peer generates a \textit{transaction valid} message to be sent to the submitting peer. The message has the following structure: ~\\
+\Par{\textit{\textbf{Transaction Endorsement:}}} The endorsing peers ($ep_{bc_{i}}$) verifies the client signature $\sigma_c$ coming in transaction proposal message. If the client signature is valid, the endorser simulates the transaction proposal by executing the operation $o_{bc}$ with the corresponding $txPayload$, and then validates that the $stateUpdate$ and $verDep$ are correct. If the validation process is successful, the endorsing peer generates a \textit{transaction valid} message to be sent to the client $c_{bc}$. The message has the following structure: ~\\
 
 \noindent\fbox{\begin{minipage}[c]{0.98\textwidth}
 $<\textit{TRANSACTION-VALID},tx_{id},\sigma_{ep}>$, where:
 \begin{compactitem}
 \item $tx_{id}$: is the transaction identifier generated with the client ID and a nonce,
-\item $\sigma_ep$: is the signature of the message signed by the submitting peer $sp_{BC}$.
+\item $\sigma_ep$: is the signature of the message signed by the client $c_{bc}$.
 \end{compactitem}
 \end{minipage}}
 
@@ -347,17 +325,17 @@ $<\textit{TRANSACTION-INVALID},tx_{id},Error,\sigma_{ep}>$, where \textit{Error}
 \end{compactitem}
 \end{minipage}}
 
-\Par{\textit{\textbf{Broadcasting to Consensus:}}} The submitting peer waits then for the response from the endorsing peers. When it receives enough \textit{Transaction Valid} messages adequately signed, the peer stores the endorsing signatures into packaged called \textit{endorsement}. Once the transaction is considered endorsed, the peer invokes the consensus services by using \textit{broadcast(blob)}, where \textit{blob:=(trans\textsubscript{prop}}, \textit{endorsement)}.
+\Par{\textit{\textbf{Broadcasting to Consensus:}}} The client $c_{bc}$ waits then for the response from the endorsing peers. When it receives enough \textit{Transaction Valid} messages adequately signed, the client stores the endorsing signatures into packaged called \textit{endorsement}. Once the transaction is considered endorsed, the client invokes the consensus services by using \textit{broadcast(blob)}, where \textit{blob:=(trans\textsubscript{prop}}, \textit{endorsement)}.
 
-The number of valid responses needed to consider that the \textit{transaction proposal} is endorsed depends on the configuration of the permissioned blockchain. If the transaction has failed to collect enough endorsements, the peer abandons this transaction and notifies to the client.
+The number of valid responses needed to consider that the \textit{transaction proposal} is endorsed depends on the configuration of the permissioned blockchain. If the transaction has failed to collect enough endorsements, the client abandons this transaction proposal.
 
-\Par{\textit{\textbf{Commitment:}}} Once a submitting peer broadcasts the transactions properly endorsed to consensus, the ordering services collect these transactions and organize them into a block. From the ordering services, we get a hash-chained sequence of blocks with the transactions endorsed. The block, prepared by the ordering services, has the form $B=\left(\left[tx_1,tx_2,...,tx_k\right],h\right)$, where $h$ corresponds to the hash value of the previous block.
+\Par{\textit{\textbf{Commitment:}}} Once the client $c_{bc}$ broadcasts the transactions properly endorsed to consensus, the ordering services collect these transactions and organize them into a block. From the ordering services, we get a hash-chained sequence of blocks with the transactions endorsed. The block, prepared by the ordering services, has the form $B=\left(\left[tx_1,tx_2,...,tx_k\right],h\right)$, where $h$ corresponds to the hash value of the previous block.
 
-The peers receive the blocks from the ordering services through a direct connection or by using a gossip protocol. Once the peers have the new block, they check if the endorsement of each transaction is valid according to the policy configured in the network. The peers then verify the \textit{verDep} in order to ensure there are no conflicts between the operation $o_{bc}$; the variables involved in the transaction and the current blockchain \textit{state}. If this process finishes successfully, the transactions are committed. In the case that one of the validation fails, the peers consider the transaction as invalid, and it is dropped. Finally, the invalid transactions are informed to the client $c_{bc}$ by the submitting peer $sp_{bc}$, and according to the \textit{retryFlag}, the $sp_{bc}$ may retry the transaction.
+The nodes receive the blocks from the ordering services through a direct connection or by using a gossip protocol. Once the peers have the new block, they check if the endorsement of each transaction is valid according to the policy configured in the network. The peers then verify the \textit{verDep} in order to ensure there are no conflicts between the operation $o_{bc}$; the variables involved in the transaction and the current blockchain \textit{state}. If this process finishes successfully, the transactions are committed. In the case that one of the validation fails, the peers consider the transaction as invalid, and it is dropped. Finally, the invalid transactions are informed to the client $c_{bc}$, and according to the \textit{retryFlag}, the client may retry the transaction.
 
-The peers can change the local state only when the transactions are committed. Hence, each peer connected to the network will update their local version of the ledger once all the transactions in the block are committed. Finally, the state update is done by appending the new block to their local version of the blockchain.
+The nodes can change the local state only when the transactions are committed. Hence, each node connected to the network will update their local version of the ledger once all the transactions in the block are committed. Finally, the state update is done by appending the new block to their local version of the blockchain.
 
-\section{Privacy Preserving PBFT for Permissioned Ledgers}\label{PPPBFT}
+\section{Privacy Preserving BFT for Permissioned Ledgers}\label{PPPBFT}
 
 Considering a permissioned PBFT based consensus protocol like the one introduced in Section~\ref{PBFTHF}, in this protocol, we use the digital signature as a user authentication method without protecting the user privacy. Hence, for a privacy-preserving consensus protocol, we need to have the following properties:
 
