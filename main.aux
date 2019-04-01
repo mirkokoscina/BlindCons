@@ -19,89 +19,94 @@
 \citation{MHMD}
 \citation{PTWIST}
 \citation{Tradelens}
+\citation{BlockchainGDPR}
 \babel@aux{english}{}
 \@writefile{toc}{\contentsline {title}{BlindCons{}: A Consensus Algorithm for Privacy Preserving Private Blockchains\unskip \ \ignorespaces }{1}{chapter.1}}
-\@writefile{toc}{\authcount {4}}
-\@writefile{toc}{\contentsline {author}{Mirko Koscina$^{1,3}$ \and Pascal Lafourcade$^2$ \and David Manset$^3$ \and David Naccache$^1$}{1}{chapter.1}}
+\@writefile{toc}{\authcount {1}}
+\@writefile{toc}{\contentsline {author}{No Author Given}{1}{chapter.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1.1}}
 \newlabel{intro}{{1}{1}{Introduction}{section.1.1}{}}
-\citation{BlockchainGDPR}
 \citation{okamoto1992provably}
-\citation{castro1999practical}
 \citation{nakamoto2008bitcoin}
 \citation{wood2014ethereum}
 \citation{saxena2014increasing}
 \citation{hopwood2016zcash}
+\citation{bunz2018bulletproofs}
 \citation{van2013cryptonote}
 \citation{chaum1983blind}
 \citation{chaum1988untraceable}
 \citation{heilman2016blindly}
 \citation{okamoto1992provably}
 \citation{okamoto1992provably}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Okamoto-Schnorr blind signature diagram, where $y \xleftarrow []{r}\mathbb  {Z}_q$ means that $y$ is randomly chosen in $\mathbb  {Z}_q$.}}{3}{figure.1.1}}
-\newlabel{dia:oss}{{1}{3}{Okamoto-Schnorr blind signature diagram, where $y \xleftarrow []{r}\mathbb {Z}_q$ means that $y$ is randomly chosen in $\mathbb {Z}_q$}{figure.1.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{3}{section.1.2}}
-\newlabel{back}{{2}{3}{Background}{section.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Okamoto et al. Signature}{3}{subsection.1.2.1}}
-\newlabel{Okamoto}{{2.1}{3}{Okamoto et al. Signature}{subsection.1.2.1}{}}
 \citation{castro1999practical}
+\citation{6903593}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Preliminars}{3}{section.1.2}}
+\newlabel{back}{{2}{3}{Preliminars}{section.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Permissioned Blockchain}{3}{subsection.1.2.1}}
+\newlabel{Permissioned}{{2.1}{3}{Permissioned Blockchain}{subsection.1.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Okamoto et al. Signature}{3}{subsection.1.2.2}}
+\newlabel{Okamoto}{{2.2}{3}{Okamoto et al. Signature}{subsection.1.2.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Byzantine Fault Tolerant based Consensus for Private Blockchain Architecture}{3}{section.1.3}}
+\newlabel{PBFTHF}{{3}{3}{Byzantine Fault Tolerant based Consensus for Private Blockchain Architecture}{section.1.3}{}}
 \citation{androulaki2018hyperledger}
-\@writefile{toc}{\contentsline {section}{\numberline {3}PBFT based Consensus for Private Blockchain Architecture}{4}{section.1.3}}
-\newlabel{PBFTHF}{{3}{4}{PBFT based Consensus for Private Blockchain Architecture}{section.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Okamoto-Schnorr blind signature diagram, where $y \xleftarrow []{r}\mathbb  {Z}_q$ means that $y$ is randomly chosen in $\mathbb  {Z}_q$.}}{4}{figure.1.1}}
+\newlabel{dia:oss}{{1}{4}{Okamoto-Schnorr blind signature diagram, where $y \xleftarrow []{r}\mathbb {Z}_q$ means that $y$ is randomly chosen in $\mathbb {Z}_q$}{figure.1.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces BlindCons{} Transaction Flow.}}{5}{figure.1.2}}
 \newlabel{dia:pbft_BC}{{2}{5}{\name {} Transaction Flow}{figure.1.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces BlindCons{} Transaction Flow.}}{7}{figure.1.3}}
+\newlabel{dia:ord}{{3}{7}{\name {} Transaction Flow}{figure.1.3}{}}
 \citation{okamoto1992provably}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Privacy Preserving PBFT for Permissioned Ledgers}{7}{section.1.4}}
-\newlabel{PPPBFT}{{4}{7}{Privacy Preserving PBFT for Permissioned Ledgers}{section.1.4}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces InitTx($o_{bc}$,$Payload$,$retryFlag$,$y$)}}{8}{algorithm.1}}
-\newlabel{alg:InitTx}{{1}{8}{Privacy Preserving PBFT for Permissioned Ledgers}{algorithm.1}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces TxProp($crand_{bc},sp_{bc},o_{bc},Payload,retryFlag,$ $(\rho ,\sigma ,\epsilon ),y$)}}{9}{algorithm.2}}
-\newlabel{alg:TxProp}{{2}{9}{Privacy Preserving PBFT for Permissioned Ledgers}{algorithm.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Privacy Preserving BFT for Permissioned Ledgers}{8}{section.1.4}}
+\newlabel{PPPBFT}{{4}{8}{Privacy Preserving BFT for Permissioned Ledgers}{section.1.4}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces TxProp($o_{bc}$,$Payload$,$retryFlag$,$y$)}}{9}{algorithm.1}}
+\newlabel{alg:TxProp}{{1}{9}{Privacy Preserving BFT for Permissioned Ledgers}{algorithm.1}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces TxEndors($trans_{prop},securityPolicies,y$)}}{10}{algorithm.2}}
+\newlabel{alg:TxEndors}{{2}{10}{Privacy Preserving BFT for Permissioned Ledgers}{algorithm.2}{}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces TxBrodCons($trans_{prop}$, $(\rho ,\sigma ,\epsilon _{ep})$, $endorsement_{tid}$)}}{10}{algorithm.3}}
+\newlabel{alg:TxBrodCons}{{3}{10}{Privacy Preserving BFT for Permissioned Ledgers}{algorithm.3}{}}
 \citation{castro1999practical,li2007beyond}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces TxEndors($m,trans_{prop},securityPolicies,y$)}}{10}{algorithm.3}}
-\newlabel{alg:TxEndors}{{3}{10}{Privacy Preserving PBFT for Permissioned Ledgers}{algorithm.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Protocol Properties}{10}{section.1.5}}
-\newlabel{PROP}{{5}{10}{Protocol Properties}{section.1.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Consistency}{10}{subsection.1.5.1}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces BlockCommitment(\emph  {blob, NewBlock, securityPolicies, retryFlag)}}}{11}{algorithm.4}}
+\newlabel{alg:BlockCommitment}{{4}{11}{Privacy Preserving BFT for Permissioned Ledgers}{algorithm.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Protocol Properties}{11}{section.1.5}}
+\newlabel{PROP}{{5}{11}{Protocol Properties}{section.1.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Consistency}{11}{subsection.1.5.1}}
 \citation{castro1999practical}
 \citation{schnorr2001security}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces TxBrodCons($trans_{prop}$, $(\rho ,\sigma ,\epsilon _{ep})$, $endorsement_{tid}$)}}{11}{algorithm.4}}
-\newlabel{alg:TxBrodCons}{{4}{11}{Privacy Preserving PBFT for Permissioned Ledgers}{algorithm.4}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces BlockCommitment(\emph  {blob, NewBlock, securityPolicies, retryFlag)}}}{11}{algorithm.5}}
-\newlabel{alg:BlockCommitment}{{5}{11}{Privacy Preserving PBFT for Permissioned Ledgers}{algorithm.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Liveness}{11}{subsection.1.5.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Blindness}{11}{subsection.1.5.3}}
 \citation{schnorr2001security}
 \citation{pointcheval1996provably}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Liveness}{12}{subsection.1.5.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Blindness}{12}{subsection.1.5.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Non-forgeability}{12}{subsection.1.5.4}}
 \citation{pointcheval1996provably}
 \citation{10.1007/3-540-68339-9_33}
 \citation{pointcheval1996provably}
 \citation{pointcheval1996provably}
 \citation{schnorr1991efficient}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Non-forgeability}{12}{subsection.1.5.4}}
 \citation{Chaum:1981:UEM:358549.358563}
 \bibstyle{plain}
 \bibdata{nicfg.bib}
-\bibcite{androulaki2018hyperledger}{1}
-\bibcite{castro1999practical}{2}
-\bibcite{chaum1983blind}{3}
-\bibcite{chaum1988untraceable}{4}
-\bibcite{Chaum:1981:UEM:358549.358563}{5}
-\bibcite{MHMD}{6}
-\bibcite{PTWIST}{7}
-\bibcite{heilman2016blindly}{8}
-\bibcite{hopwood2016zcash}{9}
-\bibcite{Tradelens}{10}
-\bibcite{li2007beyond}{11}
-\bibcite{nakamoto2008bitcoin}{12}
-\bibcite{okamoto1992provably}{13}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{13}{section.1.6}}
 \newlabel{conclu}{{6}{13}{Conclusion}{section.1.6}{}}
-\bibcite{pointcheval1996provably}{14}
-\bibcite{10.1007/3-540-68339-9_33}{15}
-\bibcite{saxena2014increasing}{16}
-\bibcite{schnorr1991efficient}{17}
-\bibcite{schnorr2001security}{18}
-\bibcite{BlockchainGDPR}{19}
-\bibcite{van2013cryptonote}{20}
-\bibcite{wood2014ethereum}{21}
+\bibcite{androulaki2018hyperledger}{1}
+\bibcite{6903593}{2}
+\bibcite{bunz2018bulletproofs}{3}
+\bibcite{castro1999practical}{4}
+\bibcite{chaum1983blind}{5}
+\bibcite{chaum1988untraceable}{6}
+\bibcite{Chaum:1981:UEM:358549.358563}{7}
+\bibcite{MHMD}{8}
+\bibcite{PTWIST}{9}
+\bibcite{heilman2016blindly}{10}
+\bibcite{hopwood2016zcash}{11}
+\bibcite{Tradelens}{12}
+\bibcite{li2007beyond}{13}
+\bibcite{nakamoto2008bitcoin}{14}
+\bibcite{okamoto1992provably}{15}
+\bibcite{pointcheval1996provably}{16}
+\bibcite{10.1007/3-540-68339-9_33}{17}
+\bibcite{saxena2014increasing}{18}
+\bibcite{schnorr1991efficient}{19}
+\bibcite{schnorr2001security}{20}
+\bibcite{BlockchainGDPR}{21}
+\bibcite{van2013cryptonote}{22}
+\bibcite{wood2014ethereum}{23}

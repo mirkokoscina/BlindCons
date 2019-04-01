@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  28 DEC 2018 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.14)  1 APR 2019 22:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1100,11 +1100,6 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 53.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 53.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\\' on input line 53.
@@ -1124,72 +1119,81 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.89284pt too wide) in paragraph at lines 82--83
-\T1/ptm/m/n/10 sen-sus al-go-rithm. Sec-tion []4[] de-scribes our privacy-prese
-rving con-sen-sus al-go-rithm Blind-
+[2] [3] [4]
+Overfull \hbox (9.70184pt too wide) in paragraph at lines 279--280
+ [][] 
  []
 
-[2] [3]
-Overfull \hbox (7.8139pt too wide) in paragraph at lines 154--155
-\T1/ptm/m/n/10 peer. This model pro-vides a base of knowl-edge of the net-work 
-mem-bers, mak-ing PBFT [[]2[]]
- []
-
-[4]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 289.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 284.
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--291
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
-
-[5]
-Overfull \hbox (2.31247pt too wide) in paragraph at lines 329--330
-\T1/ptm/m/n/10 Then, the en-dorser sim-u-lates the trans-ac-tion pro-posal and 
-val-i-dates that the $\OML/cmm/m/it/10 stateUpdate$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
-[6] [7]
+[6]
+Overfull \hbox (67.60425pt too wide) in paragraph at lines 459--460
+ [][] 
+ []
+
+
+Underfull \vbox (badness 3179) has occurred while \output is active []
+
+ [7]
+[8]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 391.
- [8]
-Overfull \hbox (2.58328pt too wide) in paragraph at lines 420--421
+put line 500.
+
+Overfull \hbox (2.58328pt too wide) in paragraph at lines 513--514
 []\T1/ptm/m/n/10 The next step cor-re-sponds to the \T1/ptm/b/n/10 Trans-ac-tio
-n En-dorse-ment \T1/ptm/m/n/10 de-tailed in Al-go-rithm []3[].
+n En-dorse-ment \T1/ptm/m/n/10 de-tailed in Al-go-rithm []2[].
  []
 
 
-Underfull \vbox (badness 2376) has occurred while \output is active []
+Overfull \hbox (25.76625pt too wide) in paragraph at lines 513--514
+\T1/ptm/m/it/10 Blind-Sign \T1/ptm/m/n/10 for the mes-sage $\OML/cmm/m/it/10 M 
+\OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 crand\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 o[
+]\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 Payload\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10
+ verDep\OMS/cmsy/m/n/10 jj\OML/cmm/m/it/10 stateUpdate\OMS/cmsy/m/n/10 jj\OML/c
+mm/m/it/10 retryFlag\OT1/cmr/m/n/10 )$\T1/ptm/m/n/10 ,
+ []
 
- [9]
-[10] [11] [12] (./main.bbl [13]) [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 562.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 562.
- (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 562.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 562.
+[9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+[11] [12] (./main.bbl [13]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 49.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [14]) [15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 655.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 655.
+
+(./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 655.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 655.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 62C2C8E27755BD86093095C7986DD513;110.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 562.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 655.
  ) 
 Here is how much of TeX's memory you used:
- 23471 strings out of 492649
- 457519 string characters out of 6129622
- 572237 words of memory out of 5000000
- 26784 multiletter control sequences out of 15000+600000
- 54653 words of font info for 66 fonts, out of 8000000 for 9000
+ 23462 strings out of 492649
+ 457393 string characters out of 6129622
+ 570299 words of memory out of 5000000
+ 26782 multiletter control sequences out of 15000+600000
+ 49437 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,18n,82p,1269b,771s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,18n,82p,1579b,778s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1210,10 +1214,10 @@ onts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/tim
 es/utmbi8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 267930 bytes).
+Output written on main.pdf (15 pages, 269654 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 320 compressed objects within 4 object streams
- 136 named destinations out of 1000 (max. 500000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
+ 131 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

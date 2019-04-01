@@ -8,6 +8,19 @@ Elli Androulaki, Artem Barger, Vita Bortnikov, Christian Cachin, Konstantinos
   blockchains.
 \newblock {\em arXiv preprint arXiv:1801.10228}, 2018.
 
+\bibitem{6903593}
+A.~{Bessani}, J.~{Sousa}, and E.~E.~P. {Alchieri}.
+\newblock State machine replication for the masses with bft-smart.
+\newblock In {\em 2014 44th Annual IEEE/IFIP International Conference on
+  Dependable Systems and Networks}, pages 355--362, June 2014.
+
+\bibitem{bunz2018bulletproofs}
+Benedikt B{\"u}nz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille,
+  and Greg Maxwell.
+\newblock Bulletproofs: Short proofs for confidential transactions and more.
+\newblock In {\em 2018 IEEE Symposium on Security and Privacy (SP)}, pages
+  315--334. IEEE, 2018.
+
 \bibitem{castro1999practical}
 Miguel Castro, Barbara Liskov, et~al.
 \newblock Practical byzantine fault tolerance.
