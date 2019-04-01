@@ -334,64 +334,93 @@ The number of valid responses needed to consider that the \textit{transaction pr
 
 \begin{figure*}[tb]
 \centering
-\fbox{\begin{tikzpicture}[node distance=0.7cm,auto,>=stealth',scale=1,thick]
+\fbox{\begin{tikzpicture}[node distance=0.5cm,auto,>=stealth',scale=1,thick]
     %Nodes definition
     \node[scale=1] (comm) {};
     \node[left = of comm, scale=1] (peer) {Peer 2};
     \node[left = of peer, scale=1] (ord) {Peer 1};
-    \node[left = of ord, scale=1] (endp3) {Orderer Peer 2};
-    \node[left = of endp3,scale=1] (endp2) {Orderer Peer 1};
+    \node[left = of ord, scale=1] (endp3) {Orderer 2};
+    \node[left = of endp3,scale=1] (endp2) {Orderer 1};
     \node[left = of endp2,scale=1] (endp1) {Orderer Leader};
     \node[left = of endp1, scale=1] (sp) {Client};
+    
     \node[below of=sp,scale=0.9, node distance=0.6cm] (sp1) {};
     \node[below of=sp1,scale=0.9, node distance=0.6cm] (sp2) {};
     \node[below of=sp2,scale=0.9, node distance=0.6cm] (sp3) {};
     \node[below of=sp3,scale=0.9, node distance=0.6cm] (sp4) {};
     \node[below of=sp4,scale=0.9, node distance=0.6cm] (sp5) {};
     \node[below of=sp5,scale=0.9, node distance=0.6cm] (sp6) {};
-    \node[below of=sp6,scale=0.9, node distance=0.6cm] (sp_ground) {};
+    \node[below of=sp6,scale=0.9, node distance=0.6cm] (sp7) {};
+    \node[below of=sp7,scale=0.9, node distance=0.6cm] (sp8) {};
+    \node[below of=sp8,scale=0.9, node distance=0.6cm] (sp9) {};
+    \node[below of=sp9,scale=0.9, node distance=0.6cm] (sp_ground) {};
+    
     \node[below of=endp1,scale=0.9, node distance=0.6cm] (endp11) {};
     \node[below of=endp11,scale=0.9, node distance=0.6cm] (endp12) {};
     \node[below of=endp12,scale=0.9, node distance=0.6cm] (endp13) {};
     \node[below of=endp13,scale=0.9, node distance=0.6cm] (endp14) {};
     \node[below of=endp14,scale=0.9, node distance=0.6cm] (endp15) {};
     \node[below of=endp15,scale=0.9, node distance=0.6cm] (endp16) {};
-    \node[below of=endp16,scale=0.9, node distance=0.6cm] (endp1_ground) {};
+    \node[below of=endp16,scale=0.9, node distance=0.6cm] (endp17) {};
+    \node[below of=endp17,scale=0.9, node distance=0.6cm] (endp18) {};
+    \node[below of=endp18,scale=0.9, node distance=0.6cm] (endp19) {};
+    \node[below of=endp19,scale=0.9, node distance=0.6cm] (endp1_ground) {};
+    
     \node[below of=endp2,scale=0.9, node distance=0.6cm] (endp21) {};
     \node[below of=endp21,scale=0.9, node distance=0.6cm] (endp22) {};
     \node[below of=endp22,scale=0.9, node distance=0.6cm] (endp23) {};
     \node[below of=endp23,scale=0.9, node distance=0.6cm] (endp24) {};
     \node[below of=endp24,scale=0.9, node distance=0.6cm] (endp25) {};
     \node[below of=endp25,scale=0.9, node distance=0.6cm] (endp26) {};
-    \node[below of=endp26,scale=0.9, node distance=0.6cm] (endp2_ground) {};
+    \node[below of=endp26,scale=0.9, node distance=0.6cm] (endp27) {};
+    \node[below of=endp27,scale=0.9, node distance=0.6cm] (endp28) {};
+    \node[below of=endp28,scale=0.9, node distance=0.6cm] (endp29) {};
+    \node[below of=endp29,scale=0.9, node distance=0.6cm] (endp2_ground) {};
+    
     \node[below of=endp3,scale=0.9, node distance=0.6cm] (endp31) {};
     \node[below of=endp31,scale=0.9, node distance=0.6cm] (endp32) {};
     \node[below of=endp32,scale=0.9, node distance=0.6cm] (endp33) {};
     \node[below of=endp33,scale=0.9, node distance=0.6cm] (endp34) {};
     \node[below of=endp34,scale=0.9, node distance=0.6cm] (endp35) {};
     \node[below of=endp35,scale=0.9, node distance=0.6cm] (endp36) {};
-    \node[below of=endp36,scale=0.9, node distance=0.6cm] (endp3_ground) {};
+    \node[below of=endp36,scale=0.9, node distance=0.6cm] (endp37) {};
+    \node[below of=endp37,scale=0.9, node distance=0.6cm] (endp38) {};
+    \node[below of=endp38,scale=0.9, node distance=0.6cm] (endp39) {};
+    \node[below of=endp39,scale=0.9, node distance=0.6cm] (endp3_ground) {};
+    
     \node[below of=ord,scale=0.9, node distance=0.6cm] (ord1) {};
     \node[below of=ord1,scale=0.9, node distance=0.6cm] (ord2) {};
     \node[below of=ord2,scale=0.9, node distance=0.6cm] (ord3) {};
     \node[below of=ord3,scale=0.9, node distance=0.6cm] (ord4) {};
     \node[below of=ord4,scale=0.9, node distance=0.6cm] (ord5) {};
     \node[below of=ord5,scale=0.9, node distance=0.6cm] (ord6) {};
-    \node[below of=ord6,scale=0.9, node distance=0.6cm] (ord_ground) {};
+    \node[below of=ord6,scale=0.9, node distance=0.6cm] (ord7) {};
+    \node[below of=ord7,scale=0.9, node distance=0.6cm] (ord8) {};
+    \node[below of=ord8,scale=0.9, node distance=0.6cm] (ord9) {};
+    \node[below of=ord9,scale=0.9, node distance=0.6cm] (ord_ground) {};
+    
     \node[below of=peer,scale=0.9, node distance=0.6cm] (peer1) {};
     \node[below of=peer1,scale=0.9, node distance=0.6cm] (peer2) {};
     \node[below of=peer2,scale=0.9, node distance=0.6cm] (peer3) {};
     \node[below of=peer3,scale=0.9, node distance=0.6cm] (peer4) {};
     \node[below of=peer4,scale=0.9, node distance=0.6cm] (peer5) {};
     \node[below of=peer5,scale=0.9, node distance=0.6cm] (peer6) {};
-    \node[below of=peer6,scale=0.9, node distance=0.6cm] (peer_ground) {};
+    \node[below of=peer6,scale=0.9, node distance=0.6cm] (peer7) {};
+    \node[below of=peer7,scale=0.9, node distance=0.6cm] (peer8) {};
+    \node[below of=peer8,scale=0.9, node distance=0.6cm] (peer9) {};
+    \node[below of=peer9,scale=0.9, node distance=0.6cm] (peer_ground) {};
+    
+    
     \node[below of=comm,scale=0.9, node distance=0.6cm] (comm1) {};
-    \node[below of=comm1,scale=0.9, node distance=0.6cm] (comm2) {Propose};
-    \node[below of=comm2,scale=0.9, node distance=0.6cm] (comm3) {};
-    \node[below of=comm3,scale=0.9, node distance=0.6cm] (comm4) {Prepare};
-    \node[below of=comm4,scale=0.9, node distance=0.6cm] (comm5) {};
-    \node[below of=comm5,scale=0.9, node distance=0.6cm] (comm6) {Commit};
-    \node[below of=comm6,scale=0.9, node distance=0.6cm] (comm_ground) {};
+    \node[below of=comm1,scale=0.9, node distance=0.6cm] (comm2) {};
+    \node[below of=comm2,scale=0.9, node distance=0.6cm] (comm3) {Propose};
+    \node[below of=comm3,scale=0.9, node distance=0.6cm] (comm4) {};
+    \node[below of=comm4,scale=0.9, node distance=0.6cm] (comm5) {Prepare};
+    \node[below of=comm5,scale=0.9, node distance=0.6cm] (comm6) {};
+    \node[below of=comm6,scale=0.9, node distance=0.6cm] (comm7) {Commit};
+    \node[below of=comm7,scale=0.9, node distance=0.6cm] (comm8) {};
+    \node[below of=comm8,scale=0.9, node distance=0.6cm] (comm9) {};
+    \node[below of=comm9,scale=0.9, node distance=0.6cm] (comm_ground) {};
 
     % Vertical Lines
     %\draw (client) -- (client_ground);
@@ -404,60 +433,59 @@ The number of valid responses needed to consider that the \textit{transaction pr
     
     % Horizontal Lines
     %\draw (client) -- (client_ground);
-    \draw (sp2) -- (comm2);
-    \draw (sp3) -- (comm3);
-    \draw (sp4) -- (comm4);
-    \draw (sp5) -- (comm5);
-    \draw (sp6) -- (comm6);
+    \draw [thick,dashed] (sp2) -- (comm2);
+    \draw [thick,dashed] (sp4) -- (comm4);
+    \draw [thick,dashed] (sp6) -- (comm6);
+    \draw [thick,dashed] (sp8) -- (comm8);
 
 
     %Initiating Transactions
   %  \draw[->] ($(client)!0.1!(client_ground)$) -- node[below,scale=1,midway]{$1$} ($(sp)!0.1!(sp_ground)$);
     %Transaction Proposal
-    \draw[->] ($(sp)!0.1!(sp_ground)$) --  ($(endp12)!0.1!(endp1_ground)$);
-    \draw[->] ($(sp)!0.1!(sp_ground)$) --  ($(endp22)!0.1!(endp2_ground)$);
-    \draw[->] ($(sp)!0.1!(sp_ground)$) --  ($(endp32)!0.1!(endp3_ground)$);
+    \draw[->] ($(sp)!0.1!(sp_ground)$) --  ($(endp11)!0.1!(endp1_ground)$);
+    \draw[->] ($(sp)!0.1!(sp_ground)$) --  ($(endp21)!0.1!(endp2_ground)$);
+    \draw[->] ($(sp)!0.1!(sp_ground)$) --  ($(endp31)!0.1!(endp3_ground)$);
 
     %Propose
-    \draw[->] ($(endp12)!0.1!(endp1_ground)$) -- ($(endp23)!0.1!(endp2_ground)$);
-    \draw[->] ($(endp12)!0.1!(endp1_ground)$) -- ($(endp33)!0.1!(endp3_ground)$);
+    \draw[->] ($(endp11)!0.1!(endp1_ground)$) -- ($(endp23)!0.1!(endp2_ground)$);
+    \draw[->] ($(endp11)!0.1!(endp1_ground)$) -- ($(endp33)!0.1!(endp3_ground)$);
 
     %Prepare
-    \draw[->] ($(endp13)!0.1!(endp1_ground)$) -- ($(endp24)!0.1!(endp2_ground)$);
-    \draw[->] ($(endp13)!0.1!(endp1_ground)$) -- ($(endp34)!0.1!(endp3_ground)$);
+    \draw[->] ($(endp13)!0.1!(endp1_ground)$) -- ($(endp25)!0.1!(endp2_ground)$);
+    \draw[->] ($(endp13)!0.1!(endp1_ground)$) -- ($(endp35)!0.1!(endp3_ground)$);
     
-    \draw[->] ($(endp23)!0.1!(endp2_ground)$) -- ($(endp14)!0.1!(endp1_ground)$);
-    \draw[->] ($(endp23)!0.1!(endp2_ground)$) -- ($(endp34)!0.1!(endp3_ground)$);
+    \draw[->] ($(endp23)!0.1!(endp2_ground)$) -- ($(endp15)!0.1!(endp1_ground)$);
+    \draw[->] ($(endp23)!0.1!(endp2_ground)$) -- ($(endp35)!0.1!(endp3_ground)$);
     
-    \draw[->] ($(endp33)!0.1!(endp3_ground)$) -- ($(endp14)!0.1!(endp1_ground)$);
-    \draw[->] ($(endp33)!0.1!(endp3_ground)$) -- ($(endp24)!0.1!(endp2_ground)$);
+    \draw[->] ($(endp33)!0.1!(endp3_ground)$) -- ($(endp15)!0.1!(endp1_ground)$);
+    \draw[->] ($(endp33)!0.1!(endp3_ground)$) -- ($(endp25)!0.1!(endp2_ground)$);
     
     %Commit
-    \draw[->] ($(endp14)!0.1!(endp1_ground)$) -- ($(endp25)!0.1!(endp2_ground)$);
-    \draw[->] ($(endp14)!0.1!(endp1_ground)$) -- ($(endp35)!0.1!(endp3_ground)$);
+    \draw[->] ($(endp15)!0.1!(endp1_ground)$) -- ($(endp27)!0.1!(endp2_ground)$);
+    \draw[->] ($(endp15)!0.1!(endp1_ground)$) -- ($(endp37)!0.1!(endp3_ground)$);
     
-    \draw[->] ($(endp24)!0.1!(endp2_ground)$) -- ($(endp15)!0.1!(endp1_ground)$);
-    \draw[->] ($(endp24)!0.1!(endp2_ground)$) -- ($(endp35)!0.1!(endp3_ground)$);
+    \draw[->] ($(endp25)!0.1!(endp2_ground)$) -- ($(endp17)!0.1!(endp1_ground)$);
+    \draw[->] ($(endp25)!0.1!(endp2_ground)$) -- ($(endp37)!0.1!(endp3_ground)$);
     
-    \draw[->] ($(endp34)!0.1!(endp3_ground)$) -- ($(endp15)!0.1!(endp1_ground)$);
-    \draw[->] ($(endp34)!0.1!(endp3_ground)$) -- ($(endp25)!0.1!(endp2_ground)$);
+    \draw[->] ($(endp35)!0.1!(endp3_ground)$) -- ($(endp17)!0.1!(endp1_ground)$);
+    \draw[->] ($(endp35)!0.1!(endp3_ground)$) -- ($(endp27)!0.1!(endp2_ground)$);
     
     %End
     
-	\draw[->] ($(endp15)!0.1!(endp1_ground)$) -- ($(sp6)!0.1!(sp_ground)$);    
-    \draw[->] ($(endp15)!0.1!(endp1_ground)$) -- ($(ord6)!0.1!(ord_ground)$);
-    \draw[->] ($(endp15)!0.1!(endp1_ground)$) -- ($(peer6)!0.1!(peer_ground)$);
+	\draw[->] ($(endp17)!0.1!(endp1_ground)$) -- ($(sp9)!0.1!(sp_ground)$);    
+    \draw[->] ($(endp17)!0.1!(endp1_ground)$) -- ($(ord9)!0.1!(ord_ground)$);
+    \draw[->] ($(endp17)!0.1!(endp1_ground)$) -- ($(peer9)!0.1!(peer_ground)$);
     
-    \draw[->] ($(endp25)!0.1!(endp2_ground)$) -- ($(sp6)!0.1!(sp_ground)$); 
-    \draw[->] ($(endp25)!0.1!(endp2_ground)$) -- ($(ord6)!0.1!(ord_ground)$);
-    \draw[->] ($(endp25)!0.1!(endp2_ground)$) -- ($(peer6)!0.1!(peer_ground)$);
+    \draw[->] ($(endp27)!0.1!(endp2_ground)$) -- ($(sp9)!0.1!(sp_ground)$); 
+    \draw[->] ($(endp27)!0.1!(endp2_ground)$) -- ($(ord9)!0.1!(ord_ground)$);
+    \draw[->] ($(endp27)!0.1!(endp2_ground)$) -- ($(peer9)!0.1!(peer_ground)$);
     
-    \draw[->] ($(endp35)!0.1!(endp3_ground)$) -- ($(sp6)!0.1!(sp_ground)$); 
-    \draw[->] ($(endp35)!0.1!(endp3_ground)$) -- ($(ord6)!0.1!(ord_ground)$);
-    \draw[->] ($(endp35)!0.1!(endp3_ground)$) -- ($(peer6)!0.1!(peer_ground)$);
+    \draw[->] ($(endp37)!0.1!(endp3_ground)$) -- ($(sp9)!0.1!(sp_ground)$); 
+    \draw[->] ($(endp37)!0.1!(endp3_ground)$) -- ($(ord9)!0.1!(ord_ground)$);
+    \draw[->] ($(endp37)!0.1!(endp3_ground)$) -- ($(peer9)!0.1!(peer_ground)$);
     
 \end{tikzpicture}}
-\caption{\name{} Transaction Flow.}
+\caption{\name{} ordering service}
 \label{dia:ord}
 \end{figure*}
 
